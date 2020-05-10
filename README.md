@@ -15,9 +15,6 @@ In collaborazione con:
 **Luca Corlatti**  
 **Aaron Iemma**  
 
-. **[Trigger e funzioni](#Triggers)**  
-
-
 ### SOMMARIO  
 
 ##### *DESCRIZIONE GENERALE*  
@@ -29,24 +26,24 @@ In collaborazione con:
  1.4 [Utenti](#Utenti)  
 2. **[Collegarsi al database](#Collegarsi)**  
  2.1 [pgAdmin](#pgAdmin)  
- 2.2 [phpPgAdmin](#phpPgAdmin)  
- 2.3 [QGIS](#QGIS)  
- 2.4 [R](#R)  
- 2.5 [LibreOffice](#LibreOffice)  
- 2.6 [Altri tool](#Altritool)  
- 2.7 [Consultazione dei dati con SQL](#SQL)  
+ 2.2 [QGIS](#QGIS)  
+ 2.3 [R](#R)  
+ 2.4 [LibreOffice](#LibreOffice)  
+ 2.5 [Altri tool](#Altritool)  
+ 2.6 [Consultazione dei dati con SQL](#SQL)  
 
 ##### *DOCUMENTAZIONE DATABASE*  
 
 3. **[Dati di base](#Base)**  
 4. **[Dati biodiversità](#Biodiversita)**  
 5. **[Dati osservazioni](#Osservazioni)**  
-6. **[Dati ungulati censimenti](#Censimenti)**  
-7. **[Dati ungulati tracking](#Morti)**
-8. **[Dati ungulati dinamica](#Dinamica)**
-9. **[Dati cervo controllo](#Controllo)**
-10. **[Dati in lavorazione](#Lavorazione)**  
-11. **[Trigger e funzioni](#Triggers)**     
+6. **[Dati censimenti camoscio](#Censimenti_camoscio)**  
+7. **[Dati censimenti stambecchi](#Censimenti_stambecco)**  
+8. **[Dati ungulati tracking](#Morti)**
+9. **[Dati ungulati dinamica](#Dinamica)**
+10. **[Dati cervo controllo](#Controllo)**
+11. **[Dati in lavorazione](#Lavorazione)**  
+12. **[Trigger e funzioni](#Triggers)**     
 
 ### <a name="Scopo"></a>Scopo del database  
 Lo scopo del database **pns_db** è di archiviare i dati di monitoraggio raccolti dal Parco Nazionale dello Stelvio (tutte e sezioni) in un repository (archivio) unico dove i dati siano consistenti, accessibili e integrati fra loro evitando duplicazioni dei dati (con conseguenti potenziali errori) e rischi di perdite di dati sul lungo periodo.  
@@ -128,6 +125,10 @@ Nel pstelvio_db, ogni dataset (cioè, ogni ambito tematico oggetto di una raccol
 * **Biodiversità**  
 * **Osservazioni**  
 * **Censimenti**  
+   * Camoscio
+   * Stambecco
+   * Capriolo
+   * Cervo
 * **Tracking**  
 * **Morti**
 * **Dinamica**
@@ -157,13 +158,13 @@ I soggetti interessati (e autorizzati)  possono ottenere un nome utente e una pa
 In futuro potranno essere create ulteriori tipologie di utenza per dati o per gruppi specifici.  
 
 ## <a name="Collegarsi"></a> Collegarsi al database  
-Il database è fisicamente installato su una macchina gestita dal Parco ed è accessibile da ovunque, sia dentro sia fuori la rete interna del Parco. Funziona come un **server** centralizzato che invia i dati, quando richiesto, alle applicazioni **client**. Un client è un software che accede ad un servizio remoto (il database) installato su un altro computer (il server), tramite una rete (Internet). Il client può essere installato su un qualsiasi computer/device e il database può gestire più connessioni contemporaneamente (il database può essere usato allo stesso momento da più utenti senza rischio di corrompere i dati). Esempi di applicazioni client sono pgAdmin e phppgAdmin (per la gestione del database, per interagire con le tabelle e per interrogare i dati), QGIS e volendo anche ArcGIS (per visualizzare i dati spaziali), R (per analisi statistiche), fogli di calcolo come Calc di Libreoffice o anche Excel (per visualizzare ma non modificare i dati delle tabelle). Un altro client interessante è [DBeaver](https://dbeaver.io/) (per interrogare i dati e per creare degli schemi con il modello dati come quelli riportati in questo documento). In generale, praticamente tutti i software per la gestione, visualizzazione e analisi dei dati si possono interfacciare con il database.  
+Il database è fisicamente installato su una macchina gestita dal Parco ed è accessibile da ovunque, sia dentro sia fuori la rete interna del Parco. Funziona come un **server** centralizzato che invia i dati, quando richiesto, alle applicazioni **client**. Un client è un software che accede ad un servizio remoto (il database) installato su un altro computer (il server), tramite una rete (Internet). Il client può essere installato su un qualsiasi computer/device e il database può gestire più connessioni contemporaneamente (il database può essere usato allo stesso momento da più utenti senza rischio di corrompere i dati). Esempi di applicazioni client sono pgAdmin (per la gestione del database, per interagire con le tabelle e per interrogare i dati), QGIS e volendo anche ArcGIS (per visualizzare i dati spaziali), R (per analisi statistiche), fogli di calcolo come Calc di Libreoffice o anche Excel (per visualizzare ma non modificare i dati delle tabelle). Un altro client interessante è [DBeaver](https://dbeaver.io/) (per interrogare i dati e per creare degli schemi con il modello dati come quelli riportati in questo documento). In generale, praticamente tutti i software per la gestione, visualizzazione e analisi dei dati si possono interfacciare con il database.  
 
 Per collegarsi al database, qualunque sia il client utilizzato sono necessari 5 parametri:  
 
-* Indirizzo IP del server: **pnsnas01.synology.me**
-* Nome utente
-* Password utente
+* Indirizzo IP del server: *richiedi questa informazione al coordinatore scientifico [pnsnas]*
+* Nome utente: *richiedi questa informazione al coordinatore scientifico*
+* Password utente: *richiedi questa informazione al coordinatore scientifico*
 * Porta: **5433**
 * Nome del database: **pstelvio_db**
 
@@ -171,7 +172,7 @@ Per accedere al database è necessario richiedere un nome utente e password al r
 Nelle sezioni seguenti verrà illustrato in modo sintetico come collegarsi al database con i client più comunemente usati.  
 
 ##### Nota sull'installazione di PostgreSQL  
-Per utilizzare il database non è necessario installare PostgreSQL. L'installazione creerà un database server sul vostro computer e potrete creare dei database "locali", ma questo non è necessario per collegarsi a pns_db. Basterà avere installato il solo software client (e, come illustrato in seguito, nel caso di PhppgAdmin non è necessario installare nulla).
+Per utilizzare il database non è necessario installare PostgreSQL. L'installazione creerà un database server sul vostro computer e potrete creare dei database "locali", ma questo non è necessario per collegarsi a pns_db. Basterà avere installato il solo software client.
 
 ### <a name="pgAdmin"></a> pgAdmin
 [pgAdmin](https://www.pgadmin.org/) è la piattaforma di amministrazione e sviluppo di PostgreSQL più popolare e ricca di funzionalità ed è quella distribuita assieme a PostgreSQL. Esistono due versioni: pgAdmin 3 e pgAdmin 4. La prima non è compatibile con il database pstelvio_db. La seconda si apre all'interno del browser predefinito (ad esempio, Firefox). pgAdmin è lo strumento principale per gestire i dati ed esplorare sia la struttura che il contenuto del database, inclusa la formulazione di query avanzate e la creazione di nuovi oggetti nel database.  
@@ -194,24 +195,6 @@ Se si selezionano delle righe, è possibile copiare e poi incollare i record com
 Per visualizzare i dati usando una query SQL, aprite un pannello SQL (nella pagina principale, menù TOOLS). Si aprirà una nuova finestra dove potrete scrivere il vostro codice SQL. Per vedere i dati , cliccare l'icona a forma di fulmine: i dati verranno visualizzati nel pannello inferiore (secondo i criteri impostati nella query). Per esportare tutti i dati, invece della selezione con copia incolla vista prima, si può scaricare tutto il dataset cliccando sull'icona con la freccia verso il basso (vedi figura). I dati verranno salvati in un file .csv.  
 
 [![](images/client_pgadmin4_sql.png)](https://github.com/feurbano/pns_db/blob/master/images/client_pgadmin4_sql.png?raw=true)
-
-### <a name="phpPgAdmin"></a> phpPgAdmin
-
-phpPgAdmin è uno strumento di amministrazione web-based per PostgreSQL scritto in PHP. È possibile visualizzare il contenuto del database, visualizzare e scaricare dati ed eseguire qualsiasi istruzione SQL. Il vantaggio principale è che non è necessario installare alcun software in quanto richiede solo di avere un browser web (pgAdmin 4, anche se viene visualizzato in un browser, deve essere installato sulla macchina di chi lo usa).
-L'interfaccia è molto intuitiva e simile a PgAdmin, con una struttura abbastanza simile a un visore di *file system*.
-Mentre per le operazioni di base questo strumento è ancora valido benché molto semplice (e poco supportato nel suo sviluppo), si consiglia di utilizzare pgAdmin per interazioni più elaborate.
-
-Per connetterti con il database, vai alla pagina web [XXXXXXXXXXXXXXXXXXXX](XXXXXXXXXXXXXXXXXXXX) e inserisci le tue credenziali.  
-
-Una volta connesso, verrà visualizzato l'elenco dei database all'interno del server (pstelvio_db non è l'unico). Puoi esplorare il contenuto del database pstelvio_db usando il menu di navigazione nel pannello di sinistra. Apri lo schema che ti interessa e seleziona una tabella. Nel pannello di destra vedrai l'elenco dei campi (colonne) nella tabella con una descrizione del loro contenuto.  
-Per visualizzare i dati, fai clic su **Browse**.  
-Per scaricare i dati in una serie di formati possibili (incluso .csv) fai clic su **Export** (vedi immagine sotto).
-
-[![](images/client_phppgadmin_table.png)](https://github.com/feurbano/pns_db/blob/master/images/client_phppgadmin_table.png?raw=true)
-
-Se vuoi eseguire una query SQL, fai clic su **SQL** in alto a destra (vedi immagine sotto). Si aprirà una nuova finestra in cui è possibile scrivere il proprio SQL. Fai clic su **EXECUTE** per vedere i risultati sulla pagina principale.
-
-[![](images/client_phppgadmin_sql.png)](https://github.com/feurbano/pns_db/blob/master/images/client_phppgadmin_sql.png?raw=true)
 
 ### <a name="QGIS"></a> QGIS
 [QGIS](www.qgis.org) è un GIS desktop perfettamente integrato con PostgreSQL e PostGIS e offre una vasta gamma di strumenti per gestire i dati spaziali nel database. La connessione al database è piuttosto semplice e il processo è ben documentato, ad esempio [qui](http://docs.qgis.org/2.18/en/docs/training_manual/database/index.html) (da verificare eventuali differenze in versioni più recenti). È possibile accedere ai dati in tre passaggi:  
@@ -237,7 +220,7 @@ Per importare dati dal database in [R](https://www.r-project.org/) è sufficient
 ```
 library(RPostgreSQL)
 drv <- dbDriver("PostgreSQL")
-con <- dbConnect(drv, dbname="pstelvio_db", host="pnsnas01.synology.me",
+con <- dbConnect(drv, dbname="pstelvio_db", host="RICHIEDI_QUESTA_INFO_AL_RESPONSABILE_SCIENTIFICO",
 port="5433", user="YOURUSER", password="YOURPASSWORD")
 rs <- dbSendQuery(con, "select * from biodiversita.epigei_monitoraggio;")
 df <- fetch(rs,-1)
@@ -354,8 +337,32 @@ Qui di seguito è riportata la lista completa di tabelle e viste contenute in qu
 Dati che possono essere inseriti in questo schema in modo continuativo sono nuove specie nelle tabelle di tassonomia. Visto che ogni livello tassonomico fa riferimento al codice del livello tassonomico superiore, bisognerà cominciare ad importare (manualmente) il nuovo livello tassonomico di livello maggiore, e poi, preso nota del codice attribuito a questo dal database, andare ad inserire i livelli tassonomici inferiori.  
 Per inserire o modificare specie bisogna essere amministratori.
 
-## <a name="Biodiversita"></a> Dati biodiversità  
+## <a name="Biodiversita"></a> Dati Osservazioni  
 
 #### Descrizione generale  
 
 #### Struttura logica
+
+#### Lista tabelle  
+
+#### Protocolli di inserimento dati  
+
+## <a name="Censimenti_camoscio"></a> Dati Censimenti Camoscio  
+
+#### Descrizione generale  
+
+#### Struttura logica
+
+#### Lista tabelle  
+
+#### Protocolli di inserimento dati  
+
+## <a name="Censimenti_stambecco"></a> Dati Censimenti Stambecco  
+
+#### Descrizione generale  
+
+#### Struttura logica
+
+#### Lista tabelle  
+
+#### Protocolli di inserimento dati  
