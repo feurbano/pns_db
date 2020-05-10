@@ -353,6 +353,19 @@ Per inserire o modificare specie bisogna essere amministratori.
 
 #### Struttura logica
 
+[![](images/schema_censimenti_camoscio_tn.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_censimenti_camoscio_tn.png?raw=true)  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+[![](images/schema_censimenti_camoscio_lom.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_censimenti_camoscio_lom.png?raw=true)  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+[![](images/schema_censimenti_camoscio_bz.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_censimenti_camoscio_bz.png?raw=true)  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+[![](images/schema_censimenti_camoscio_distribuzione.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_censimenti_camoscio_distribuzione.png?raw=true)  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+
 #### Lista tabelle  
 
 #### Protocolli di inserimento dati  
