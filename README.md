@@ -358,7 +358,7 @@ Per inserire o modificare specie bisogna essere amministratori.
 
 #### Struttura logica
 
-[![](images/schema_biodiversita_struttura_monitoraggio.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_struttura_monitoraggio.png?raw=true)  
+[![](images/schema_biodiversita_struttura_specie.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_struttura_specie.png?raw=true)  
 **Biodiversità - struttura monitoraggio**  
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
 
@@ -447,6 +447,42 @@ Qui di seguito è riportata la lista completa di tabelle e viste contenute in qu
 ```
 
 [...]  
+
+## <a name="Osservazioni"></a> Osservazioni ##
+
+
+#### Descrizione generale  
+
+```diff
++ Descrizione generale del dataset censimenti camoscio, della sua organizzazione, e della raccolta dati +
+```
+[...]  
+
+#### Struttura logica
+
+[![](images/schema_osservazioni.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_osservazioni.png?raw=true)  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+#### Lista tabelle  
+
+Qui di seguito è riportata la lista completa di tabelle e viste contenute in questo schema. Ogni oggetto è descritto dal commento presente nel database.  
+
+| TABLE | DESCRIPTION |
+| ----- | ----------- |
+| **observations** | <sub></sub> |
+| **observations\_asfd** | <sub></sub> |
+| **specie** | <sub></sub> |
+
+| VIEW | DESCRIPTION |
+| ---- | ----------- |
+| **view\_observations\_stats** | <sub></sub> |
+| **view\_presence\_observations\_stats** | <sub></sub> |
+
+#### Protocolli di inserimento dati  
+
+```diff
++ Descrizione dei protocolli di inserimento dati per le prossime sessioni di inserimento dati +
+```
 
 
 ## <a name="Censimenti_camoscio"></a> Dati Censimenti Camoscio  
