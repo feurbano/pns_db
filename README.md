@@ -362,14 +362,26 @@ Per inserire o modificare specie bisogna essere amministratori.
 **Biodiversità - struttura monitoraggio**  
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
 
-[![](images/schema_biodiversita_struttura_specie.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_struttura_specie.png?raw=true)  
-**Biodiversità - struttura database specie**  
+[![](images/schema_biodiversita_epigei.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_epigei.png?raw=true)  
+**Biodiversità - epigei**  
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
 
-[![](images/schema_biodiversita_dati_monitoraggio.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_dati_monitoraggio.png?raw=true)  
-**Biodiversità - dati monitoraggio**  
+[![](images/schema_biodiversita_uccelli.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_uccelli.png?raw=true)  
+**Biodiversità - uccelli**  
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
 
+[![](images/schema_biodiversita_lepidotteri.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_lepidotteri.png?raw=true)  
+**Biodiversità - lepidotteri**  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+[![](images/schema_biodiversita_ortotteri.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_ortotteri.png?raw=true)  
+**Biodiversità - ortotteri**  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+[![](images/schema_biodiversita_odonati.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_odonati.png?raw=true)  
+**Biodiversità - odonati**  
+
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
 [![](images/schema_biodiversita_ambiente.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_ambiente.png?raw=true)  
 **Biodiversità - dati ambientali**  
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
