@@ -289,14 +289,12 @@ Per questioni complesse, gli operatori e i collaboratori del Parco possono sempr
 
 In questo schema vengono archiviati i dati generali non raccolti nell’ambito di un progetto specifico di monitoraggio e in principio potenzialmente utili a tutti i progetti. In particolare:
 
-* ...
+* I confini del parco, dei settori e dei settori provinciali (settore lombardo diviso in Brescia e Sondrio)
 * Il nome scientifico, con tutti i livelli tassonomici, delle specie presenti nel Parco. Visto che gli animali identificati nei vari progetti non sono tutti determinati a livello di specie (alcuni a livello di genus, di famiglia o anche ordine) e che in alcuni casi vengono usati nomi scientifici e in altri nomi comuni (ad esempio, vecchie osservazioni delle guardie) si è deciso di creare per ogni progetto una lista con il nome degli animali (scientifico o meno) utilizzati e di associargli il codice dei vari livelli tassonomici (riconosciuti) come definiti nelle tabelle di questo schema.  
 
 #### Struttura logica  
 
-I quattro gruppi tematici di questo schema (elencati nella sezione precedente) non sono fra di loro direttamente collegati, ad eccezione della tabella con l'**anagrafica delle guardie** che possono essere collegate a una valle specifica (opzionale).
-
-...  
+Gli strati geografici con i **confini ufficiali** rimangono come riferimento unico per tutti i dataset, anche se in alcuni casi ci possono essere delle differenza dovute a layer calcolati in precedenza con base in versioni diverse dei confini del parco o dovuti a operazioni come la riproiezioni, che non sono reversibili. In questi casi si è tenuto il dato originale.  
 
 Le **informazioni sulla tassonomia** degli animali osservati nel Parco sono organizzate in tabelle, una per ogni livello gerarchico. Ogni tabella riporta il nome scientifico, un codice identificativo univoco assegnato dal database (numerico) e il codice identificativo del livello superiore, nella sequenza:  
 
@@ -325,34 +323,126 @@ Qui di seguito è riportata la lista completa di tabelle e viste contenute in qu
 
 | TABLE | DESCRIPTION |
 | ----- | ----------- |
-
-
+| **boundaries\_park** | <sub></sub> |
+| **boundaries\_sectors** | <sub></sub> |
+| **boundaries\_sectors\_provinces** | <sub></sub> |
+| **scientific\_name\_class** | <sub>Table that stores information on the class of interest for the PNGP.</sub> |
+| **scientific\_name\_family** | <sub>Table that stores information on the family of interest for the PNGP.</sub> |
+| **scientific\_name\_genus** | <sub>Table that stores information on the genus of interest for the PNGP.</sub> |
+| **scientific\_name\_order** | <sub>Table that stores information on the order of interest for the PNGP.</sub> |
+| **scientific\_name\_species** | <sub>Table that stores information on the species of interest for the PNGP.</sub> |
+| **scientific\_name\_subfamily** | <sub>Table that stores information on the subfamily of interest for the PNGP.</sub> |
+| **scientific\_name\_suborder** | <sub>Table that stores information on the suborder of interest for the PNGP.</sub> |
+| **scientific\_name\_subspecies** | <sub>Table that stores information on the subspecies of interest for the PNGP.</sub> |
+| **scientific\_name\_superfamily** | <sub>Table that stores information on the superfamily of interest for the PNGP.</sub> |
+| **scientific\_name\_tribe** | <sub>Table that stores information on the tribe of interest for the PNGP.</sub> |
 
 | VIEW | DESCRIPTION |
 | ---- | ----------- |
-
+| **view\_scientific\_name** | <sub></sub> |
+| **view\_scientific\_name\_extended** | <sub></sub> |
 
 #### Protocolli di inserimento dati  
 
 Dati che possono essere inseriti in questo schema in modo continuativo sono nuove specie nelle tabelle di tassonomia. Visto che ogni livello tassonomico fa riferimento al codice del livello tassonomico superiore, bisognerà cominciare ad importare (manualmente) il nuovo livello tassonomico di livello maggiore, e poi, preso nota del codice attribuito a questo dal database, andare ad inserire i livelli tassonomici inferiori.  
 Per inserire o modificare specie bisogna essere amministratori.
 
-## <a name="Biodiversita"></a> Dati Osservazioni  
+## <a name="Biodiversita"></a> Biodiversità  
 
 #### Descrizione generale  
 
+```diff
++ Descrizione generale del (complesso) dataset biodiversità, della sua organizzazione, e della raccolta dati +
+```
+[...]  
+
 #### Struttura logica
 
+[![](images/schema_biodiversita_struttura_monitoraggio.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_struttura_monitoraggio.png?raw=true)  
+**Biodiversità - struttura monitoraggio**  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+[![](images/schema_biodiversita_struttura_specie.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_struttura_specie.png?raw=true)  
+**Biodiversità - struttura database specie**  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+[![](images/schema_biodiversita_dati_monitoraggio.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_dati_monitoraggio.png?raw=true)  
+**Biodiversità - dati monitoraggio**  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+[![](images/schema_biodiversita_ambiente.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_biodiversita_ambiente.png?raw=true)  
+**Biodiversità - dati ambientali**  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
+
 #### Lista tabelle  
+Qui di seguito è riportata la lista completa di tabelle e viste contenute in questo schema. Ogni oggetto è descritto dal commento presente nel database.  
+
+| TABLE | DESCRIPTION |
+| ----- | ----------- |
+| **biodiversita\_animali** | <sub>Lista dei nomi degli animali identificati. Il nome può essere sia un nome scientifico, sia un nome comune, e può essere riferito a diversi livelli tassonomici (non necessariamente la specie). La stessa specie, ad esempio, può essere identificata da nomi diversi. Ad ogni nome sono poi associati i codici dei livelli tassonomici noti, che possono poi essere utilizzati per le analisi. Questa tabella è il riferimento per tutte le tabelle con informazioni su individui, che riportano come identificativo dell’animale il codice chiave di questa tabella.</sub> |
+| **epigei\_controllo\_plot** | <sub>Elenco delle uscite di controllo dei plot in cui sono stati raccolti i campioni e riattivate le trappole</sub> |
+| **epigei\_controllo\_trappole** | <sub>Stato di ciascuna trappola durante l'uscita di controllo e numero di campioni raccolti per taxon</sub> |
+| **epigei\_monitoraggio** | <sub>Elenco delle specie catturate in ciascuna uscita di controllo in ciascun plot-trappola</sub> |
+| **lepidotteri\_controllo** | <sub>Elenco delle uscite di monitoraggio effettuate in ciascun plot per i lepidotteri</sub> |
+| **lepidotteri\_monitoraggio** | <sub>Elenco delle specie monitorate in ciascuna uscita di controllo in ciascun plot</sub> |
+| **lepidotteri\_osservazioni** | <sub>Elendo delle specie osservate ma non direttamente attribuibili a una uscita di controllo per un plot</sub> |
+| **lu\_cielo\_copertura** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per la copertura del cielo usata in altre tabelle del database.</sub> |
+| **lu\_controllo\_esito** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per l'esito del monitoraggio</sub> |
+| **lu\_dati\_qualita** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per la qualità dei dati raccolti durante i monitoraggi</sub> |
+| **lu\_esposizione** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per l'eposizione del plot</sub> |
+| **lu\_lepidotteri\_fioritura\_diversita** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per la diversità della fioritura presente durante i monitoraggi dei lepidotteri</sub> |
+| **lu\_lepidotteri\_fioritura\_quantita** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per la quantità della fioritura presente durante i monitoraggi dei lepidotteri</sub> |
+| **lu\_odonati\_stima** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per la quantità di odonati rilevati durante i monitoraggi opportunistici</sub> |
+| **lu\_pascolo\_bestiame** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per la presenza di bestiame durante i monitoraggi dei lepidotteri</sub> |
+| **lu\_pascolo\_impatto** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per l'impatto del bestiame durante i monitoraggi dei lepidotteri</sub> |
+| **lu\_stato\_trappola** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per definire lo stato della trappola-pitfall durante il controllo</sub> |
+| **lu\_tipo\_vegetazione** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per definirela tipologia di vegetazione</sub> |
+| **lu\_tratto** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per identificare la tipologia di "tratto" durante i transetti</sub> |
+| **lu\_uccelli\_comportamento** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per definireil comportamento degli uccelli contattati durante il monitoraggio </sub> |
+| **lu\_uccelli\_distanza** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per definire la distanza degli uccelli contattati durante il monitoraggio </sub> |
+| **lu\_uccelli\_osservazione\_tipo** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per definire il tipo di contatto degli uccelli contattati durante il monitoraggio </sub> |
+| **lu\_vento\_quantita** | <sub>Tabella di look up con la lista dei codici/categorie/valori accettabili (dominio) e a loro descrizione per la quantità di vento presente durante i monitoraggi dei lepidotteri</sub> |
+| **odonati\_osservazioni** | <sub>Elenco delle osservazioni di odonati effettuate in modo opportunistico</sub> |
+| **operatori** | <sub>Elenco degli operatori che hanno effettuato le osservazioni di odonati e di uccelli</sub> |
+| **ortotteri\_controllo** | <sub>Elenco delle uscite di monitoraggio effettuate in ciascun plot per gli ortotteri</sub> |
+| **ortotteri\_monitoraggio** | <sub>Elenco delle specie monitorate in ciascuna uscita di controllo in ciascun plot</sub> |
+| **ortotteri\_osservazioni** | <sub>Elendo delle specie osservate ma non direttamente attribuibili a una uscita di controllo per un plot</sub> |
+| **parchi** | <sub>Parco dello Stelvio (tabella tenuta per poter integrare i dati con quelli degli altri parchi). </sub> |
+| **plot** | <sub>Elenco dei plot in cui viene effettuato il monitoraggio</sub> |
+| **plot\_caratteristiche\_ambientali** | <sub>Elenco delle caratteristiche ambentali e fisionomiche di ciascun plot</sub> |
+| **plot\_fitosociologia** | <sub>Elenco delle tipologie vegetazionali presenti in ciascun plot, secondo le quali sono stati effettuati i rilievi fitosociologici</sub> |
+| **plot\_fitosociologia\_specie** | <sub>Elenco delle specie vegetali presenti in ciascun plot, suddivisa per tipologia vegetazionale presente nel plot</sub> |
+| **plot\_temperatura** | <sub>Serie storica dei dati di temperatura dell'aria rilevati in ciascun plot</sub> |
+| **plot\_tipologie\_vegetazione** | <sub>Elenco delle tipologie vegetazionali presenti in ciascun plot, riportati nei poligoni della mappa degli habitat</sub> |
+| **settori** | <sub>Elenco dei settori del Parco</sub> |
+| **trappole** | <sub>Elenco delle trappole pitfall presenti in ciascun plot</sub> |
+| **uccelli\_controllo** | <sub>Elenco delle uscite di monitoraggio effettuate in ciascun plot per gli uccelli</sub> |
+| **uccelli\_monitoraggio** | <sub>Elenco delle specie monitorate in ciascuna uscita di controllo in ciascun plot</sub> |
+| **vegetazione\_griglia** | <sub>Anagrafica dei codici usati per la posizione di riferimento delle informazioni di vegetazione (quadrante trappole/vegetazione)</sub> |
+| **vegetazione\_microhabitat** | <sub>Elenco delle caratterisriche di microhabitat rilevate durante i monitoraggi in ciascu  punto predefinito del plot</sub> |
+| **vegetazione\_morfospecie\_fiorite** | <sub>Elenco delle morfospecie fiorite rilevate durante i monitoraggi in ciascun punto predenfinito del plot</sub> |
+| **vegetazione\_morfospecie\_tutte** | <sub>Elenco delle morfospecie anche non fiorite rilevate durante i monitoraggi in ciascun punto predenfinito del plot solo in prossimità delle trappole pitfall</sub> |
+
+| VIEW | DESCRIPTION |
+| ---- | ----------- |
+| **view\_animali\_osservati** | <sub></sub> |
 
 #### Protocolli di inserimento dati  
+
+```diff
++ Descrizione dei protocolli di inserimento dati per le prossime campagne di raccolta dati +
+```
+
+[...]  
+
 
 ## <a name="Censimenti_camoscio"></a> Dati Censimenti Camoscio  
 
 #### Descrizione generale  
 
 ```diff
-- Descrizione generale del dataset censimenti camoscio, della sua organizzazione, e della raccolta dati -
++ Descrizione generale del dataset censimenti camoscio, della sua organizzazione, e della raccolta dati +
 ```
 [...]  
 
@@ -386,9 +476,11 @@ Al momento non ci sono controlli formali nelle tabelle di censimento per garanti
 
 #### Lista tabelle  
 
+Qui di seguito è riportata la lista completa di tabelle e viste contenute in questo schema. Ogni oggetto è descritto dal commento presente nel database.  
+
 | TABLE | DESCRIPTION |
 | ----- | ----------- |
-| **censimenti\_bz\_1999** | <sub>Quì andrà la descrizione della tabella presa dai commenti del database che devono ancora essere compilati.</sub> |
+| **censimenti\_bz\_1999** | <sub></sub> |
 | **censimenti\_lom\_1999** | <sub></sub> |
 | **censimenti\_lom\_2001** | <sub></sub> |
 | **censimenti\_lom\_2013** | <sub></sub> |
@@ -425,9 +517,8 @@ Al momento non ci sono controlli formali nelle tabelle di censimento per garanti
 
 #### Protocolli di inserimento dati  
 
-
 ```diff
-- Descrizione dei protocolli di inserimento dati per i prossimi censimenti -
++ Descrizione dei protocolli di inserimento dati per i prossimi censimenti +
 ```
 
 [...]  
@@ -441,10 +532,9 @@ Nel caso in cui la geometria delle unità spaziali (particelle) vari, devono ess
 #### Descrizione generale  
 
 ```diff
-- Descrizione generale del dataset censimenti stambecco, della sua organizzazione, e della raccolta dati -
++ Descrizione generale del dataset censimenti stambecco, della sua organizzazione, e della raccolta dati +
 ```
 [...]  
-
 
 #### Struttura logica
 
@@ -452,6 +542,8 @@ Nel caso in cui la geometria delle unità spaziali (particelle) vari, devono ess
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
 
 #### Lista tabelle  
+
+Qui di seguito è riportata la lista completa di tabelle e viste contenute in questo schema. Ogni oggetto è descritto dal commento presente nel database.  
 
 | TABLE | DESCRIPTION |
 | ----- | ----------- |
@@ -479,7 +571,7 @@ Nel caso in cui la geometria delle unità spaziali (particelle) vari, devono ess
 
 
 ```diff
-- Descrizione dei protocolli di inserimento dati per i prossimi censimenti -
++ Descrizione dei protocolli di inserimento dati per i prossimi censimenti +
 ```
 
 [...]
