@@ -6,7 +6,7 @@
 
 Questo manuale è la descrizione del database fauna del **[Parco Nazionale dello Stelvio](www.stelviopark.it)** (PNS). L'obiettivo è documentarne la struttura e le procedure di aggiornamento e consultazione.
 
-Ultimo aggiornamento: **03/04/2020**  
+Ultimo aggiornamento: **22/05/2020**  
 Autore: **Ferdinando Urbano**  
 
 In collaborazione con:  
@@ -112,7 +112,7 @@ WHERE numero_individui_totale > 50;
 
 Una **chiave primaria**, nel modello relazionale delle basi di dati, è un insieme di attributi che permette di individuare univocamente un record in una tabella o relazione.  
 La chiave primaria è costituita da una o più colonne della tabella (in questo secondo caso viene definita chiave composta). La chiave primaria è unica per ogni tabella. Una tabella deve obbligatoriamente possedere una e una sola chiave primaria, e nessun record nella tabella può avere il valore, o i valori, di un campo attributo identificato dalla chiave primaria identico a quello di un qualsiasi altro valore della stessa (vincolo di unicità): il tentativo di inserimento di un tale valore genera un errore di violazione della chiave primaria.  
-Quando la chiave primaria è costituita da un solo campo, nel database è stata utilizzata la convenzione di chiamare quel campo *nome della tabella al singolare* + _ + *code*. Ad esempio, **plot_code** o **animale_code**. In genere questo corrisponde al nome con cui quell'oggetto viene comunemente chiamato e questo facilita l'uso del database e l'inserimento di nuovi dati quando si opera direttamente sulle tabelle. Quando invece questo non è stato possibile ad esempio perché non c'è un singolo campo o una combinazione di campi univoca che può essere utilizzata come chiave primaria, si è utilizzato un numero seriale (generato automaticamente dal database in modo da non essere mai ripetuto). In questo caso il nome convenzionale è *nome della tabella* + . + *id*. Ad esempio **uccelli_monitoraggio_id** (schema biodiversità). In questo caso, se il record è poi riferito da altre tabelle, andrà utilizzato questo numero generato dal database (quindi non noto a priori né riportato sulle schede di campo). Nel caso in cui il campo ha un valore codificato riconosciuto universalmente, invece del suffisso *_code* si è utilizzato *_name* (ad esempio *genus_name*).  
+Quando la chiave primaria è costituita da un solo campo, nel database è stata utilizzata la convenzione di chiamare quel campo *nome della tabella al singolare* + _ + *code*. Ad esempio, **plot_code** o **animale_code**. In genere questo corrisponde al nome con cui quell'oggetto viene comunemente chiamato e questo facilita l'uso del database e l'inserimento di nuovi dati quando si opera direttamente sulle tabelle. Quando invece questo non è stato possibile ad esempio perché non c'è un singolo campo o una combinazione di campi univoca che può essere utilizzata come chiave primaria, si è utilizzato un numero seriale (generato automaticamente dal database in modo da non essere mai ripetuto). In questo caso il nome convenzionale è *nome della tabella* + _ + *id*. Ad esempio **uccelli_monitoraggio_id** (schema biodiversità). In questo caso, se il record è poi riferito da altre tabelle, andrà utilizzato questo numero generato dal database (quindi non noto a priori né riportato sulle schede di campo). Nel caso in cui il campo ha un valore codificato riconosciuto universalmente, invece del suffisso *_code* si è utilizzato *_name* (ad esempio *genus_name*).  
 
 Come nota aggiuntiva, una **chiave esterna** è invece un insieme di attributi che fa riferimento a una chiave di un'altra tabella, permettendo in tal modo di esplicitare relazioni di tipo uno a molti tra tabelle attraverso quello che è chiamato vincolo di integrità referenziale. In concreto, i valori riportati nella tabella per uno o più campi, devono essere contenuti nella tabella di riferimento (potremmo dire che per avere un figlio devi prima avere un padre). Questi vincoli corrispondono alle linee che collegano le tabelle nei grafici ER (entità-relazioni) include in questo manuale.  
 
@@ -222,7 +222,7 @@ library(RPostgreSQL)
 drv <- dbDriver("PostgreSQL")
 con <- dbConnect(drv, dbname="pstelvio_db", host="RICHIEDI_QUESTA_INFO_AL_RESPONSABILE_SCIENTIFICO",
 port="5433", user="YOURUSER", password="YOURPASSWORD")
-rs <- dbSendQuery(con, "select * from biodiversita.epigei_monitoraggio;")
+rs <- dbSendQuery(con, "SELECT * FROM biodiversita.epigei_monitoraggio;")
 df <- fetch(rs,-1)
 df[1:4,]
 str(df)
@@ -351,31 +351,134 @@ Per inserire o modificare specie bisogna essere amministratori.
 
 #### Descrizione generale  
 
+```diff
+Descrizione generale del dataset censimenti camoscio, della sua organizzazione, e della raccolta dati
+```
+[...]  
+
+I dati di censimento del camoscio sono organizzati per settore del Parco (Trento, Bolzano, Lombardia). I dati fanno riferimento alle unità spaziali *Parcelle*. Le parcelle sono raggruppate in settori e in stazioni. Per Trento e Bolzano esiste anche un layer sub-particelle.  
+Visto che le unità spaziali di riferimento (particelle) sono cambiate nel tempo, i dataset sono stati divisi per intervalli temporali in cui le particelle non sono cambiate. Per convenzione nel nome dei layer il suffisso corrisponde all'anno di inizio di validità. Nelle tabelle spaziali i campi *anno_inizio* e *anno_fine* specificano l'intervallo di riferimento. Nelle tabelle dei censimenti questo non è necessario perché il campo *anno* da già l'inquadramento temporale preciso del dato.  
+
+Al momento non ci sono controlli formali nelle tabelle di censimento per garantire che i totali (*total_all* e *total_gen*) corrispondano effettivamente alla somma dei valori delel singole classi di sesso/età. Questi dovrebbero essere calcolati con una funzione una volta importati i parziali nel database.
+
+[...]  
+
 #### Struttura logica
 
 [![](images/schema_censimenti_camoscio_tn.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_censimenti_camoscio_tn.png?raw=true)  
+**Censimenti camoscio Trento**  
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
 
 [![](images/schema_censimenti_camoscio_lom.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_censimenti_camoscio_lom.png?raw=true)  
+**Censimenti camoscio Lombardia**  
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
 
 [![](images/schema_censimenti_camoscio_bz.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_censimenti_camoscio_bz.png?raw=true)  
+**Censimenti camoscio Bolzano**  
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
+
 
 [![](images/schema_censimenti_camoscio_distribuzione.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_censimenti_camoscio_distribuzione.png?raw=true)  
+**Camoscio Distribuzione**  
 *Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
-
 
 #### Lista tabelle  
 
+| TABLE | DESCRIPTION |
+| ----- | ----------- |
+| **censimenti\_bz\_1999** | <sub>Quì andrà la descrizione della tabella presa dai commenti del database che devono ancora essere compilati.</sub> |
+| **censimenti\_lom\_1999** | <sub></sub> |
+| **censimenti\_lom\_2001** | <sub></sub> |
+| **censimenti\_lom\_2013** | <sub></sub> |
+| **censimenti\_tn\_1996** | <sub></sub> |
+| **censimenti\_tn\_1999** | <sub></sub> |
+| **distribuzione\_2010** | <sub></sub> |
+| **localizzazioni\_tn\_1999** | <sub></sub> |
+| **particelle\_bz\_1999** | <sub></sub> |
+| **particelle\_lom\_1999** | <sub></sub> |
+| **particelle\_lom\_2001** | <sub></sub> |
+| **particelle\_lom\_2013** | <sub></sub> |
+| **particelle\_tn\_1996** | <sub></sub> |
+| **particelle\_tn\_1999** | <sub></sub> |
+| **percorsi\_lom\_2013** | <sub></sub> |
+| **settori\_bz\_1999** | <sub></sub> |
+| **settori\_lom\_1999** | <sub></sub> |
+| **settori\_lom\_2001** | <sub></sub> |
+| **settori\_lom\_2013** | <sub></sub> |
+| **settori\_tn\_1996** | <sub></sub> |
+| **settori\_tn\_1999** | <sub></sub> |
+| **stazioni\_bz\_1999** | <sub></sub> |
+| **stazioni\_lom\_1999** | <sub></sub> |
+| **stazioni\_lom\_2001** | <sub></sub> |
+| **stazioni\_lom\_2013** | <sub></sub> |
+| **stazioni\_tn\_1996** | <sub></sub> |
+| **stazioni\_tn\_1999** | <sub></sub> |
+| **subparticelle\_bz\_1999** | <sub></sub> |
+| **subparticelle\_tn\_1996** | <sub></sub> |
+| **subparticelle\_tn\_1999** | <sub></sub> |
+
+| VIEW | DESCRIPTION |
+| ---- | ----------- |
+| **...** | <sub></sub> |
+
 #### Protocolli di inserimento dati  
+
+```diff
+Descrizione dei protocolli di inserimento dati per i prossimi censimenti
+```
+
+[...]  
+
+Nel caso in cui la geometria delle unità spaziali (particelle) vari, devono essere create delle nuove tabelle particelle, stazioni, settori e censimenti con suffisso l'anno di inizio. Andranno poi specificate nelle tabelle del periodo precedente, l'anno di fine di validità (che è nullo per i layer "attivi"). I layer di stazioni e settori dovrebbe essere derivati da quello delle particelle con una operazione di union [*st_union(geom)*]. Se ci sono problemi di inconsistenza topologica, si possono utlizzare gli strumenti di PostGIS per correggerli.
+
+[...]  
 
 ## <a name="Censimenti_stambecco"></a> Dati Censimenti Stambecco  
 
 #### Descrizione generale  
 
+```diff
+Descrizione generale del dataset censimenti stambecco, della sua organizzazione, e della raccolta dati
+```
+[...]  
+
+
 #### Struttura logica
+
+[![](images/schema_censimenti_stambecco.png)](https://github.com/feurbano/pns_db/blob/master/images/schema_censimenti_stambecco.png?raw=true)  
+*Se il testo non è leggibile, clicca sull'immagine per ingrandire.*
 
 #### Lista tabelle  
 
+| TABLE | DESCRIPTION |
+| ----- | ----------- |
+| **avvistamenti\_occasionali** | <sub></sub> |
+| **censimenti\_2001** | <sub></sub> |
+| **censimenti\_2011** | <sub></sub> |
+| **colonie\_2011** | <sub></sub> |
+| **distribuzione\_1998** | <sub></sub> |
+| **distribuzione\_2004** | <sub></sub> |
+| **distribuzione\_2010** | <sub></sub> |
+| **distribuzione\_2011** | <sub></sub> |
+| **particelle\_2001** | <sub></sub> |
+| **particelle\_2011** | <sub></sub> |
+| **percorsi\_2011** | <sub></sub> |
+| **settori\_2001** | <sub></sub> |
+| **settori\_2011** | <sub></sub> |
+| **stazioni\_2001** | <sub></sub> |
+| **stazioni\_2011** | <sub></sub> |
+
+| VIEW | DESCRIPTION |
+| ---- | ----------- |
+| **...** | <sub></sub> |
+
 #### Protocolli di inserimento dati  
+
+
+```diff
+Descrizione dei protocolli di inserimento dati per i prossimi censimenti
+```
+
+[...]
