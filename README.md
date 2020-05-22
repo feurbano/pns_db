@@ -352,7 +352,7 @@ Per inserire o modificare specie bisogna essere amministratori.
 #### Descrizione generale  
 
 ```diff
-Descrizione generale del dataset censimenti camoscio, della sua organizzazione, e della raccolta dati
+- Descrizione generale del dataset censimenti camoscio, della sua organizzazione, e della raccolta dati -
 ```
 [...]  
 
@@ -425,8 +425,9 @@ Al momento non ci sono controlli formali nelle tabelle di censimento per garanti
 
 #### Protocolli di inserimento dati  
 
+
 ```diff
-Descrizione dei protocolli di inserimento dati per i prossimi censimenti
+- Descrizione dei protocolli di inserimento dati per i prossimi censimenti -
 ```
 
 [...]  
@@ -440,7 +441,7 @@ Nel caso in cui la geometria delle unità spaziali (particelle) vari, devono ess
 #### Descrizione generale  
 
 ```diff
-Descrizione generale del dataset censimenti stambecco, della sua organizzazione, e della raccolta dati
+- Descrizione generale del dataset censimenti stambecco, della sua organizzazione, e della raccolta dati -
 ```
 [...]  
 
@@ -478,7 +479,7 @@ Descrizione generale del dataset censimenti stambecco, della sua organizzazione,
 
 
 ```diff
-Descrizione dei protocolli di inserimento dati per i prossimi censimenti
+- Descrizione dei protocolli di inserimento dati per i prossimi censimenti -
 ```
 
 [...]
