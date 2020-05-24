@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="censimenti_stambecco.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="avvistamenti_occasionali" fq-name="censimenti_stambecco.avvistamenti_occasionali" order="0" color-bg="255,231,206" x="640" y="0">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="censimenti_2001" fq-name="censimenti_stambecco.censimenti_2001" order="1" color-bg="255,128,0" x="0" y="0">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="censimenti_2011" fq-name="censimenti_stambecco.censimenti_2011" order="2" color-bg="255,128,0" x="0" y="389">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="colonie_2011" fq-name="censimenti_stambecco.colonie_2011" order="3" color-bg="158,207,207" x="360" y="350">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="particelle_2001" fq-name="censimenti_stambecco.particelle_2001" order="4" color-bg="64,128,128" x="180" y="70">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="particelle_2011" fq-name="censimenti_stambecco.particelle_2011" order="5" color-bg="64,128,128" x="180" y="488">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="percorsi_2011" fq-name="censimenti_stambecco.percorsi_2011" order="6" color-bg="255,191,223" x="640" y="520">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="settori_2001" fq-name="censimenti_stambecco.settori_2001" order="7" color-bg="160,207,207" x="347" y="108">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="settori_2011" fq-name="censimenti_stambecco.settori_2011" order="8" color-bg="160,207,207" x="347" y="526">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="stazioni_2001" fq-name="censimenti_stambecco.stazioni_2001" order="9" color-bg="160,207,207" x="490" y="120">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="stazioni_2011" fq-name="censimenti_stambecco.stazioni_2011" order="10" color-bg="160,207,207" x="490" y="538">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="12" name="distribuzione_1998" fq-name="censimenti_stambecco.distribuzione_1998" order="11" color-bg="255,128,255" x="70" y="840">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="13" name="distribuzione_2004" fq-name="censimenti_stambecco.distribuzione_2004" order="12" color-bg="255,128,255" x="250" y="840">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="14" name="distribuzione_2010" fq-name="censimenti_stambecco.distribuzione_2010" order="13" color-bg="255,128,255" x="440" y="840">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="15" name="distribuzione_2011" fq-name="censimenti_stambecco.distribuzione_2011" order="14" color-bg="255,128,255" x="630" y="840">
+				<path name="censimenti_stambecco"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="fki_censimenti_2001_particelle" fq-name="censimenti_stambecco.censimenti_2001.fki_censimenti_2001_particelle" type="fk" pk-ref="5" fk-ref="2"/>
+		<relation name="fki_censimenti_2011_particelle" fq-name="censimenti_stambecco.censimenti_2011.fki_censimenti_2011_particelle" type="fk" pk-ref="6" fk-ref="3"/>
+		<relation name="fki_particelle_2001_settori" fq-name="censimenti_stambecco.particelle_2001.fki_particelle_2001_settori" type="fk" pk-ref="8" fk-ref="5"/>
+		<relation name="fki_particelle_2011_settori" fq-name="censimenti_stambecco.particelle_2011.fki_particelle_2011_settori" type="fk" pk-ref="9" fk-ref="6"/>
+		<relation name="fki_settori_2001_stazioni" fq-name="censimenti_stambecco.settori_2001.fki_settori_2001_stazioni" type="fk" pk-ref="10" fk-ref="8"/>
+		<relation name="fki_settori_2011_stazioni" fq-name="censimenti_stambecco.settori_2011.fki_settori_2011_stazioni" type="fk" pk-ref="11" fk-ref="9"/>
+	</relations>
+</diagram>

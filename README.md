@@ -170,48 +170,47 @@ Per collegarsi al database, qualunque sia il client utilizzato sono necessari 5 
 
 Per accedere al database è necessario richiedere un nome utente e password al responsabile del database.  
 Nelle sezioni seguenti verrà illustrato in modo sintetico come collegarsi al database con i client più comunemente usati.  
+Sul server PostgresSQL del Parco sono presenti anche altri database. Per poter accedere è necessario fare richiesta al responsabile scientifico del Parco.  
 
 ##### Nota sull'installazione di PostgreSQL  
 Per utilizzare il database non è necessario installare PostgreSQL. L'installazione creerà un database server sul vostro computer e potrete creare dei database "locali", ma questo non è necessario per collegarsi a pns_db. Basterà avere installato il solo software client.
 
 ### <a name="pgAdmin"></a> pgAdmin
 [pgAdmin](https://www.pgadmin.org/) è la piattaforma di amministrazione e sviluppo di PostgreSQL più popolare e ricca di funzionalità ed è quella distribuita assieme a PostgreSQL. Esistono due versioni: pgAdmin 3 e pgAdmin 4. La prima non è compatibile con il database pstelvio_db. La seconda si apre all'interno del browser predefinito (ad esempio, Firefox). pgAdmin è lo strumento principale per gestire i dati ed esplorare sia la struttura che il contenuto del database, inclusa la formulazione di query avanzate e la creazione di nuovi oggetti nel database.  
-Qui sotto è riportata la finestra con i parametri di connessione (pgAdmin 4).  
+Qui sotto è riportata la finestra con i parametri di connessione (*Object/Create/Server* poi tab *Connection*; nel tab *General* si può definire il nome (*Name*) della connessione che verrà visualizzato nel pannello di sinistra). Queste immagini fanno riferimento alla versione 4.20 di pgAdmin. E' possibile che in versioni precedenti o successive la grafica e/o le funzionalità siano diverse.  
 
 [![](images/client_pgadmin4_connection.png)](https://github.com/feurbano/pns_db/blob/master/images/client_pgadmin4_connection.png?raw=true)  
 
-Per visualizzare i dati, fare click sulla tabella nel menù in alto e quindi sull'icona **tabella** nel menu (vedi immagine sotto). Si aprirà una nuova finestra nel browser.  
+Per visualizzare i dati, fare click sulla tabella nel menù a sinistra dopo aver navigato nelle sezioni *stelvio_db > Schemas > Tables*, quindi sull'icona **tabella** nel menù in alto (vedi immagine sotto).  
 
 [![](images/client_pgadmin4_table1.png)](https://github.com/feurbano/pns_db/blob/master/images/client_pgadmin4_table1.png?raw=true)
 
-È possibile aggiungere criteri (icona a forma di imbuto) per ordinare i record e/o limitare la selezione a un sottoinsieme di record (nei criteri di selezione si possono usare [sub-queries](http://www.postgresqltutorial.com/postgresql-subquery/), cosa a volte utile se si vogliono vedere record in base a criteri impostati anche su altre tabelle).  
+Si aprirà una nuova finestra nel browser. È possibile aggiungere criteri (icona a forma di imbuto) per ordinare i record e/o limitare la selezione a un sottoinsieme di record (nei criteri di selezione si possono usare [sub-queries](http://www.postgresqltutorial.com/postgresql-subquery/), cosa a volte utile se si vogliono vedere record in base a criteri impostati anche su altre tabelle). In questa visualizzazione i dati possono anche essere editati manualmente. Dopo aver modificato i valori, i cambiamenti vanno salvati tramite il bottone con la freccia sovrapposta alla tabella. Se si selezionano delle righe, è possibile copiare e poi incollare i record come valori separati da virgola.
 
 [![](images/client_pgadmin4_table2.png)](https://github.com/feurbano/pns_db/blob/master/images/client_pgadmin4_table2.png?raw=true)
 
-Se si selezionano delle righe, è possibile copiare e poi incollare i record come valori separati da virgola. Da questa interfaccia è anche possibile modificare manualmente i dati. I dati possono anche essere modificati direttamente dai risultati di semplici query (che coinvolgono cioè solo la tabella target senza modificarne i dati originari ma potendo importare i criteri di WHERE con la massima libertà).  
+Per visualizzare i dati usando una query SQL, aprite un pannello SQL (nella pagina principale, menù *Tools* o icona a forma di database con sovrapposto simbolo play). Si aprirà una nuova finestra dove potrete scrivere il vostro codice SQL. Per vedere i dati, cliccare l'icona con il simbolo play: i dati verranno visualizzati nel pannello inferiore (secondo i criteri impostati nella query).  
+I dati possono anche essere modificati direttamente dai risultati di semplici query (che coinvolgono cioè solo la tabella target senza modificarne i dati originari ma potendo importare i criteri di WHERE con la massima libertà). I campi che sono editabili sono contrassegnati da una icona a forma di matita vicina al nome del campo.  
+Per esportare tutti i dati, invece della selezione con copia incolla vista prima, si può scaricare tutto il dataset cliccando sull'icona con la freccia verso il basso (vedi figura). I dati verranno salvati in un file .csv.
 
-[![](images/client_pgadmin4_table3.png)](https://github.com/feurbano/pns_db/blob/master/images/client_pgadmin4_table3.png?raw=true)
+[![](images/client_pgadmin4_table3.png)](https://github.com/feurbano/pns_db/blob/master/images/client_pgadmin4_table3.png?raw=true)  
 
-Per visualizzare i dati usando una query SQL, aprite un pannello SQL (nella pagina principale, menù TOOLS). Si aprirà una nuova finestra dove potrete scrivere il vostro codice SQL. Per vedere i dati , cliccare l'icona a forma di fulmine: i dati verranno visualizzati nel pannello inferiore (secondo i criteri impostati nella query). Per esportare tutti i dati, invece della selezione con copia incolla vista prima, si può scaricare tutto il dataset cliccando sull'icona con la freccia verso il basso (vedi figura). I dati verranno salvati in un file .csv.  
-
-[![](images/client_pgadmin4_sql.png)](https://github.com/feurbano/pns_db/blob/master/images/client_pgadmin4_sql.png?raw=true)
+Nel caso di tabelle con campi geometrici (spaziali) è possibile vedere una preview del layer tramite l'apposita icona posta di fianco al nome del campo.  
 
 ### <a name="QGIS"></a> QGIS
-[QGIS](www.qgis.org) è un GIS desktop perfettamente integrato con PostgreSQL e PostGIS e offre una vasta gamma di strumenti per gestire i dati spaziali nel database. La connessione al database è piuttosto semplice e il processo è ben documentato, ad esempio [qui](http://docs.qgis.org/2.18/en/docs/training_manual/database/index.html) (da verificare eventuali differenze in versioni più recenti). È possibile accedere ai dati in tre passaggi:  
+[QGIS](www.qgis.org) è un GIS desktop perfettamente integrato con PostgreSQL e PostGIS e offre una vasta gamma di strumenti per gestire i dati spaziali nel database.  È possibile accedere ai dati in tre passaggi:
 
 * crea una connessione al database  
 * apri la connessione  
 * carica i dati  
 
-La prima volta che ci si collega al database, è necessario creare la connessione utilizzando l'icona **Open data source manager** (vedere la schermata seguente) e inserire i parametri di connessione.  
+La prima volta che ci si collega al database, è necessario creare la connessione utilizzando l'icona **Data source manager** e inserire i parametri di connessione (riferimento: versione 2.12, da verificare eventuali differenze rispetto a versioni successive).  
 
 [![](images/client_qgis_connection.png)](https://github.com/feurbano/pns_db/blob/master/images/client_qgis_connection.png?raw=true)
 
-Una volta creata la connessione, è possibile utilizzare l'interfaccia ** DB Manager ** (vedi immagine) in cui è possibile esplorare, importare, esportare e caricare in QGIS i dati spaziali (sia vettoriali che raster).  
+Una volta creata la connessione, è possibile utilizzare l'interfaccia **DB Manager** (vedi immagine) in cui è possibile esplorare, importare, esportare e caricare in QGIS i dati spaziali (sia vettoriali sia raster). Una caratteristica interessante di QGIS è la possibilità di visualizzare i dati PNGP sovrapposti a layer come Google map o Bing map (ad esempio, con il plugin QuickMapServices).  
 
 [![](images/client_qgis_export.png)](https://github.com/feurbano/pns_db/blob/master/images/client_qgis_export.png?raw=true)
-
-Una caratteristica interessante di QGIS è la possibilità di visualizzare i dati PNGP sovrapposti a layer come Google map o Bing map (ad esempio, con il plugin QuickMapServices).  
 
 ### <a name="R"></a> R  
 

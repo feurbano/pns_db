@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="censimenti_camoscio_bz.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="censimenti_bz_1999" fq-name="censimenti_camoscio.censimenti_bz_1999" order="0" color-bg="255,128,64" x="220" y="10">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="particelle_bz_1999" fq-name="censimenti_camoscio.particelle_bz_1999" order="1" color-bg="64,128,128" x="210" y="340">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="settori_bz_1999" fq-name="censimenti_camoscio.settori_bz_1999" order="2" color-bg="191,223,223" x="403" y="397">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="stazioni_bz_1999" fq-name="censimenti_camoscio.stazioni_bz_1999" order="3" color-bg="191,223,223" x="556" y="416">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="subparticelle_bz_1999" fq-name="censimenti_camoscio.subparticelle_bz_1999" order="4" color-bg="204,255,204" x="10" y="330">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="fki_censimenti_bz_1999_particelle" fq-name="censimenti_camoscio.censimenti_bz_1999.fki_censimenti_bz_1999_particelle" type="fk" pk-ref="2" fk-ref="1"/>
+		<relation name="fki_subparticelle_bz_1999_particelle" fq-name="censimenti_camoscio.subparticelle_bz_1999.fki_subparticelle_bz_1999_particelle" type="fk" pk-ref="2" fk-ref="5"/>
+		<relation name="fki_particelle_bz_1999_settori" fq-name="censimenti_camoscio.particelle_bz_1999.fki_particelle_bz_1999_settori" type="fk" pk-ref="3" fk-ref="2"/>
+		<relation name="fki_settori_bz_1999_stazioni" fq-name="censimenti_camoscio.settori_bz_1999.fki_settori_bz_1999_stazioni" type="fk" pk-ref="4" fk-ref="3"/>
+	</relations>
+</diagram>

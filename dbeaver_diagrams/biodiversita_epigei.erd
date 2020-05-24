@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="epigei.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="epigei_controllo_plot" fq-name="biodiversita.epigei_controllo_plot" order="0" color-bg="128,255,0" x="250" y="20">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="epigei_controllo_trappole" fq-name="biodiversita.epigei_controllo_trappole" order="1" color-bg="128,255,0" x="250" y="260">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="epigei_monitoraggio" fq-name="biodiversita.epigei_monitoraggio" order="2" color-bg="64,128,128" x="510" y="240">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="lu_dati_qualita" fq-name="biodiversita.lu_dati_qualita" order="3" x="480" y="640">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="lu_stato_trappola" fq-name="biodiversita.lu_stato_trappola" order="4" x="210" y="670">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="plot" fq-name="biodiversita.plot" order="5" color-bg="255,128,0" x="0" y="0">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="trappole" fq-name="biodiversita.trappole" order="6" color-bg="255,128,0" x="40" y="460">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="lu_controllo_esito" fq-name="biodiversita.lu_controllo_esito" order="7" x="460" y="30">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="8" color-bg="198,0,0" x="730" y="430">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="epigei_controllo_trappole_controllo_plot_fkey" fq-name="biodiversita.epigei_controllo_trappole.epigei_controllo_trappole_controllo_plot_fkey" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="epigei_monitoraggio_controllo_trappole_fkey" fq-name="biodiversita.epigei_monitoraggio.epigei_monitoraggio_controllo_trappole_fkey" type="fk" pk-ref="2" fk-ref="3"/>
+		<relation name="epigei_controllo_trappole_dati_qualita_fkey" fq-name="biodiversita.epigei_controllo_trappole.epigei_controllo_trappole_dati_qualita_fkey" type="fk" pk-ref="4" fk-ref="2"/>
+		<relation name="epigei_monitoraggio_qualita_fkey" fq-name="biodiversita.epigei_monitoraggio.epigei_monitoraggio_qualita_fkey" type="fk" pk-ref="4" fk-ref="3"/>
+		<relation name="epigei_controllo_trappole_stato_fkey" fq-name="biodiversita.epigei_controllo_trappole.epigei_controllo_trappole_stato_fkey" type="fk" pk-ref="5" fk-ref="2"/>
+		<relation name="epigei_controllo_plot_plot_fkey" fq-name="biodiversita.epigei_controllo_plot.epigei_controllo_plot_plot_fkey" type="fk" pk-ref="6" fk-ref="1"/>
+		<relation name="trappole_plot_fkey" fq-name="biodiversita.trappole.trappole_plot_fkey" type="fk" pk-ref="6" fk-ref="7"/>
+		<relation name="epigei_controllo_trappole_trappola_fkey" fq-name="biodiversita.epigei_controllo_trappole.epigei_controllo_trappole_trappola_fkey" type="fk" pk-ref="7" fk-ref="2"/>
+		<relation name="epigei_controllo_esito_fkey" fq-name="biodiversita.epigei_controllo_plot.epigei_controllo_esito_fkey" type="fk" pk-ref="8" fk-ref="1"/>
+		<relation name="epigei_monitoraggio_animali_fkey" fq-name="biodiversita.epigei_monitoraggio.epigei_monitoraggio_animali_fkey" type="fk" pk-ref="9" fk-ref="3"/>
+	</relations>
+</diagram>

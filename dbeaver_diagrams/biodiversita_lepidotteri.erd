@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="lepidotteri.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="lepidotteri_controllo" fq-name="biodiversita.lepidotteri_controllo" order="0" color-bg="0,255,0" x="270" y="180">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="lepidotteri_monitoraggio" fq-name="biodiversita.lepidotteri_monitoraggio" order="1" color-bg="64,128,128" x="180" y="580">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="lepidotteri_osservazioni" fq-name="biodiversita.lepidotteri_osservazioni" order="2" color-bg="0,176,88" x="650" y="610">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="lu_cielo_copertura" fq-name="biodiversita.lu_cielo_copertura" order="3" x="530" y="0">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="lu_dati_qualita" fq-name="biodiversita.lu_dati_qualita" order="4" x="450" y="590">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="lu_lepidotteri_fioritura_diversita" fq-name="biodiversita.lu_lepidotteri_fioritura_diversita" order="5" x="530" y="100">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="lu_lepidotteri_fioritura_quantita" fq-name="biodiversita.lu_lepidotteri_fioritura_quantita" order="6" x="530" y="200">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="lu_pascolo_bestiame" fq-name="biodiversita.lu_pascolo_bestiame" order="7" x="530" y="300">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="lu_pascolo_impatto" fq-name="biodiversita.lu_pascolo_impatto" order="8" x="530" y="400">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="lu_vento_quantita" fq-name="biodiversita.lu_vento_quantita" order="9" x="530" y="500">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="plot" fq-name="biodiversita.plot" order="10" color-bg="255,128,0" x="50" y="10">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="12" name="lu_tratto" fq-name="biodiversita.lu_tratto" order="11" x="20" y="650">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="13" name="operatori" fq-name="biodiversita.operatori" order="12" color-bg="255,255,0" x="270" y="10">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="14" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="13" color-bg="255,106,106" x="450" y="710">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="lepidotteri_monitoraggio_controllo_fkey" fq-name="biodiversita.lepidotteri_monitoraggio.lepidotteri_monitoraggio_controllo_fkey" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="lepidotteri_controllo_cielo_copertura_fkey" fq-name="biodiversita.lepidotteri_controllo.lepidotteri_controllo_cielo_copertura_fkey" type="fk" pk-ref="4" fk-ref="1"/>
+		<relation name="lepidotteri_monitoraggio_dati_qualita_fkey" fq-name="biodiversita.lepidotteri_monitoraggio.lepidotteri_monitoraggio_dati_qualita_fkey" type="fk" pk-ref="5" fk-ref="2"/>
+		<relation name="lepidotteri_osservazioni_dati_qualita_fkey" fq-name="biodiversita.lepidotteri_osservazioni.lepidotteri_osservazioni_dati_qualita_fkey" type="fk" pk-ref="5" fk-ref="3"/>
+		<relation name="lepidotteri_controllo_fioritura_diversita_fkey" fq-name="biodiversita.lepidotteri_controllo.lepidotteri_controllo_fioritura_diversita_fkey" type="fk" pk-ref="6" fk-ref="1"/>
+		<relation name="lepidotteri_controllo_fioritura_quantita_fkey" fq-name="biodiversita.lepidotteri_controllo.lepidotteri_controllo_fioritura_quantita_fkey" type="fk" pk-ref="7" fk-ref="1"/>
+		<relation name="lepidotteri_controllo_pascolo_bestiame_fkey" fq-name="biodiversita.lepidotteri_controllo.lepidotteri_controllo_pascolo_bestiame_fkey" type="fk" pk-ref="8" fk-ref="1"/>
+		<relation name="lepidotteri_controllo_pascolo_impatto_fkey" fq-name="biodiversita.lepidotteri_controllo.lepidotteri_controllo_pascolo_impatto_fkey" type="fk" pk-ref="9" fk-ref="1"/>
+		<relation name="lepidotteri_controllo_vento_quantita_fkey" fq-name="biodiversita.lepidotteri_controllo.lepidotteri_controllo_vento_quantita_fkey" type="fk" pk-ref="10" fk-ref="1"/>
+		<relation name="lepidotteri_controllo_plot_fkey" fq-name="biodiversita.lepidotteri_controllo.lepidotteri_controllo_plot_fkey" type="fk" pk-ref="11" fk-ref="1"/>
+		<relation name="lepidotteri_monitoraggio_tratto_fkey" fq-name="biodiversita.lepidotteri_monitoraggio.lepidotteri_monitoraggio_tratto_fkey" type="fk" pk-ref="12" fk-ref="2"/>
+		<relation name="lepidotteri_controllo_operatori1_fkey" fq-name="biodiversita.lepidotteri_controllo.lepidotteri_controllo_operatori1_fkey" type="fk" pk-ref="13" fk-ref="1"/>
+		<relation name="lepidotteri_controllo_operatori2_fkey" fq-name="biodiversita.lepidotteri_controllo.lepidotteri_controllo_operatori2_fkey" type="fk" pk-ref="13" fk-ref="1"/>
+		<relation name="lepidotteri_monitoraggio_animali_fkey" fq-name="biodiversita.lepidotteri_monitoraggio.lepidotteri_monitoraggio_animali_fkey" type="fk" pk-ref="14" fk-ref="2"/>
+		<relation name="lepidotteri_osservazioni_animali_fkey" fq-name="biodiversita.lepidotteri_osservazioni.lepidotteri_osservazioni_animali_fkey" type="fk" pk-ref="14" fk-ref="3"/>
+	</relations>
+</diagram>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="biodiversita_animali.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="4" color-bg="255,128,64" border-width="3" x="420" y="1100">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="scientific_name_class" fq-name="basedata.scientific_name_class" order="5" border-width="3" x="643" y="1580">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="scientific_name_family" fq-name="basedata.scientific_name_family" order="6" border-width="3" x="643" y="1340">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="scientific_name_genus" fq-name="basedata.scientific_name_genus" order="7" border-width="3" x="643" y="1160">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="scientific_name_order" fq-name="basedata.scientific_name_order" order="8" border-width="3" x="643" y="1520">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="scientific_name_species" fq-name="basedata.scientific_name_species" order="9" border-width="3" x="643" y="1100">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="scientific_name_subfamily" fq-name="basedata.scientific_name_subfamily" order="10" border-width="3" x="643" y="1280">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="scientific_name_suborder" fq-name="basedata.scientific_name_suborder" order="11" border-width="3" x="643" y="1460">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="scientific_name_subspecies" fq-name="basedata.scientific_name_subspecies" order="12" border-width="3" x="643" y="1040">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="scientific_name_superfamily" fq-name="basedata.scientific_name_superfamily" order="13" border-width="3" x="643" y="1400">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="scientific_name_tribe" fq-name="basedata.scientific_name_tribe" order="14" border-width="3" x="643" y="1220">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="12" name="lepidotteri_monitoraggio" fq-name="biodiversita.lepidotteri_monitoraggio" order="15" color-bg="64,128,128" border-width="3" x="170" y="1060">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="13" name="ortotteri_monitoraggio" fq-name="biodiversita.ortotteri_monitoraggio" order="16" color-bg="64,128,128" border-width="3" x="-30" y="1120">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="14" name="lepidotteri_osservazioni" fq-name="biodiversita.lepidotteri_osservazioni" order="17" color-bg="176,255,197" border-width="3" x="600" y="600">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="15" name="odonati_osservazioni" fq-name="biodiversita.odonati_osservazioni" order="18" color-bg="176,255,197" border-width="3" x="390" y="600">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="16" name="ortotteri_osservazioni" fq-name="biodiversita.ortotteri_osservazioni" order="19" color-bg="176,255,197" border-width="3" x="200" y="600">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="17" name="uccelli_monitoraggio" fq-name="biodiversita.uccelli_monitoraggio" order="20" color-bg="64,128,128" border-width="3" x="-30" y="1520">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="18" name="epigei_monitoraggio" fq-name="biodiversita.epigei_monitoraggio" order="21" color-bg="64,128,128" border-width="3" x="200" y="1440">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<notes>
+		<note id="19" order="3" color-bg="216,216,216" x="180" y="580" w="610" h="430"></note>
+		<note id="20" order="2" color-bg="255,217,217" x="610" y="1030" w="250" h="600"></note>
+		<note id="21" order="1" color-bg="196,225,225" x="-40" y="1040" w="420" h="761"></note>
+		<note id="22" order="0" color-bg="255,213,191" x="400" y="1080" w="180" h="360"></note>
+	</notes>
+	<relations>
+		<relation name="lepidotteri_monitoraggio_animali_fkey" fq-name="biodiversita.lepidotteri_monitoraggio.lepidotteri_monitoraggio_animali_fkey" type="fk" pk-ref="1" fk-ref="12"/>
+		<relation name="ortotteri_monitoraggio_animali_fkey" fq-name="biodiversita.ortotteri_monitoraggio.ortotteri_monitoraggio_animali_fkey" type="fk" pk-ref="1" fk-ref="13"/>
+		<relation name="lepidotteri_osservazioni_animali_fkey" fq-name="biodiversita.lepidotteri_osservazioni.lepidotteri_osservazioni_animali_fkey" type="fk" pk-ref="1" fk-ref="14"/>
+		<relation name="odonati_osservazioni_animali_fkey" fq-name="biodiversita.odonati_osservazioni.odonati_osservazioni_animali_fkey" type="fk" pk-ref="1" fk-ref="15"/>
+		<relation name="ortotteri_osservazioni_animali_fkey" fq-name="biodiversita.ortotteri_osservazioni.ortotteri_osservazioni_animali_fkey" type="fk" pk-ref="1" fk-ref="16"/>
+		<relation name="uccelli_monitoraggio_animali_fkey" fq-name="biodiversita.uccelli_monitoraggio.uccelli_monitoraggio_animali_fkey" type="fk" pk-ref="1" fk-ref="17"/>
+		<relation name="epigei_monitoraggio_animali_fkey" fq-name="biodiversita.epigei_monitoraggio.epigei_monitoraggio_animali_fkey" type="fk" pk-ref="1" fk-ref="18"/>
+		<relation name="biodiversita_nome_animali_class_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_class_fkey" type="fk" pk-ref="2" fk-ref="1"/>
+		<relation name="order_class_fkey" fq-name="basedata.scientific_name_order.order_class_fkey" type="fk" pk-ref="2" fk-ref="5"/>
+		<relation name="biodiversita_nome_animali_family_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_family_fkey" type="fk" pk-ref="3" fk-ref="1"/>
+		<relation name="genus_family_fkey" fq-name="basedata.scientific_name_genus.genus_family_fkey" type="fk" pk-ref="3" fk-ref="4">
+			<bend type="abs" x="797" y="1257"/>
+		</relation>
+		<relation name="biodiversita_nome_animali_genus_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_genus_fkey" type="fk" pk-ref="4" fk-ref="1"/>
+		<relation name="species_genus_fkey" fq-name="basedata.scientific_name_species.species_genus_fkey" type="fk" pk-ref="4" fk-ref="6"/>
+		<relation name="biodiversita_nome_animali_order_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_order_fkey" type="fk" pk-ref="5" fk-ref="1"/>
+		<relation name="family_order_fkey" fq-name="basedata.scientific_name_family.family_order_fkey" type="fk" pk-ref="5" fk-ref="3">
+			<bend type="abs" x="847" y="1421"/>
+		</relation>
+		<relation name="biodiversita_nome_animali_species_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_species_fkey" type="fk" pk-ref="6" fk-ref="1"/>
+		<relation name="subspecies_species_fkey" fq-name="basedata.scientific_name_subspecies.subspecies_species_fkey" type="fk" pk-ref="6" fk-ref="9"/>
+		<relation name="biodiversita_nome_animali_subfamily_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_subfamily_fkey" type="fk" pk-ref="7" fk-ref="1"/>
+		<relation name="genus_subfamily_fkey" fq-name="basedata.scientific_name_genus.genus_subfamily_fkey" type="fk" pk-ref="7" fk-ref="4"/>
+		<relation name="biodiversita_nome_animali_suborder_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_suborder_fkey" type="fk" pk-ref="8" fk-ref="1"/>
+		<relation name="family_suborder_fkey" fq-name="basedata.scientific_name_family.family_suborder_fkey" type="fk" pk-ref="8" fk-ref="3">
+			<bend type="abs" x="838" y="1422"/>
+		</relation>
+		<relation name="biodiversita_nome_animali_subspecies_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_subspecies_fkey" type="fk" pk-ref="9" fk-ref="1"/>
+		<relation name="biodiversita_nome_animali_superfamily_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_superfamily_fkey" type="fk" pk-ref="10" fk-ref="1"/>
+		<relation name="family_superfamily_fkey" fq-name="basedata.scientific_name_family.family_superfamily_fkey" type="fk" pk-ref="10" fk-ref="3"/>
+		<relation name="biodiversita_nome_animali_tribe_fkey" fq-name="biodiversita.biodiversita_animali.biodiversita_nome_animali_tribe_fkey" type="fk" pk-ref="11" fk-ref="1"/>
+		<relation name="genus_tribe_fkey" fq-name="basedata.scientific_name_genus.genus_tribe_fkey" type="fk" pk-ref="11" fk-ref="4"/>
+	</relations>
+</diagram>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="tracking.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="animals" fq-name="tracking.animals" order="0" color-bg="255,128,64" x="430" y="470">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="gps_data_animals" fq-name="tracking.gps_data_animals" order="1" color-bg="128,255,128" x="100" y="0">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="gps_sensors" fq-name="tracking.gps_sensors" order="2" color-bg="0,255,255" x="430" y="20">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="gps_sensors_animals" fq-name="tracking.gps_sensors_animals" order="3" color-bg="0,128,128" x="680" y="80">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="lu_end_deployment" fq-name="tracking.lu_end_deployment" order="4" x="650" y="530">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="lu_gps_validity" fq-name="tracking.lu_gps_validity" order="5" x="0" y="470">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="lu_mortality" fq-name="tracking.lu_mortality" order="6" x="200" y="580">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="lu_vhf_validity" fq-name="tracking.lu_vhf_validity" order="7" x="20" y="700">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="vhf_data_animals" fq-name="tracking.vhf_data_animals" order="8" color-bg="128,255,128" x="70" y="830">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="vhf_sensors" fq-name="tracking.vhf_sensors" order="9" color-bg="128,255,255" x="410" y="990">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="vhf_sensors_animals" fq-name="tracking.vhf_sensors_animals" order="10" color-bg="0,128,128" x="700" y="850">
+				<path name="tracking"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="gps_positions_animals_fkey" fq-name="tracking.gps_data_animals.gps_positions_animals_fkey" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="gps_sensors_animals_animals_fkey" fq-name="tracking.gps_sensors_animals.gps_sensors_animals_animals_fkey" type="fk" pk-ref="1" fk-ref="4"/>
+		<relation name="vhf_data_animals_animals_fkey" fq-name="tracking.vhf_data_animals.vhf_data_animals_animals_fkey" type="fk" pk-ref="1" fk-ref="9"/>
+		<relation name="vhf_sensors_animals_animals_fkey" fq-name="tracking.vhf_sensors_animals.vhf_sensors_animals_animals_fkey" type="fk" pk-ref="1" fk-ref="11"/>
+		<relation name="gps_positions_gps_sensors_fkey" fq-name="tracking.gps_data_animals.gps_positions_gps_sensors_fkey" type="fk" pk-ref="3" fk-ref="2"/>
+		<relation name="gps_sensors_animals_gps_sensors_fkey" fq-name="tracking.gps_sensors_animals.gps_sensors_animals_gps_sensors_fkey" type="fk" pk-ref="3" fk-ref="4"/>
+		<relation name="gps_deployment_end_fk" fq-name="tracking.gps_sensors_animals.gps_deployment_end_fk" type="fk" pk-ref="5" fk-ref="4"/>
+		<relation name="vhf_deployment_end_fk" fq-name="tracking.vhf_sensors_animals.vhf_deployment_end_fk" type="fk" pk-ref="5" fk-ref="11"/>
+		<relation name="gps_data_animals_gps_validity_fkey" fq-name="tracking.gps_data_animals.gps_data_animals_gps_validity_fkey" type="fk" pk-ref="6" fk-ref="2"/>
+		<relation name="animals_mortality_fk" fq-name="tracking.animals.animals_mortality_fk" type="fk" pk-ref="7" fk-ref="1"/>
+		<relation name="vhf_data_animals_vhf_validity_fkey" fq-name="tracking.vhf_data_animals.vhf_data_animals_vhf_validity_fkey" type="fk" pk-ref="8" fk-ref="9"/>
+		<relation name="vhf_data_vhf_sensors_fkey" fq-name="tracking.vhf_data_animals.vhf_data_vhf_sensors_fkey" type="fk" pk-ref="10" fk-ref="9"/>
+		<relation name="vhf_sensors_animals_vhf_sensors_fkey" fq-name="tracking.vhf_sensors_animals.vhf_sensors_animals_vhf_sensors_fkey" type="fk" pk-ref="10" fk-ref="11"/>
+	</relations>
+</diagram>

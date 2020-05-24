@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="basedata.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="boundaries_park" fq-name="basedata.boundaries_park" order="0" color-bg="64,128,128" x="50" y="570">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="boundaries_sectors" fq-name="basedata.boundaries_sectors" order="1" color-bg="0,210,53" x="230" y="560">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="boundaries_sectors_provinces" fq-name="basedata.boundaries_sectors_provinces" order="2" color-bg="138,255,168" x="430" y="560">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="scientific_name_class" fq-name="basedata.scientific_name_class" order="3" color-bg="217,0,0" x="1050" y="290">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="scientific_name_family" fq-name="basedata.scientific_name_family" order="4" color-bg="217,0,0" x="660" y="260">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="scientific_name_genus" fq-name="basedata.scientific_name_genus" order="5" color-bg="217,0,0" x="429" y="258">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="scientific_name_order" fq-name="basedata.scientific_name_order" order="6" color-bg="217,0,0" x="860" y="280">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="scientific_name_species" fq-name="basedata.scientific_name_species" order="7" color-bg="217,0,0" x="234" y="267">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="scientific_name_subfamily" fq-name="basedata.scientific_name_subfamily" order="8" color-bg="255,128,0" x="550" y="150">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="scientific_name_suborder" fq-name="basedata.scientific_name_suborder" order="9" color-bg="255,128,0" x="790" y="150">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="scientific_name_subspecies" fq-name="basedata.scientific_name_subspecies" order="10" color-bg="255,128,0" x="0" y="277">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="12" name="scientific_name_superfamily" fq-name="basedata.scientific_name_superfamily" order="11" color-bg="255,128,0" x="700" y="420">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="13" name="scientific_name_tribe" fq-name="basedata.scientific_name_tribe" order="12" color-bg="255,128,0" x="470" y="420">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="14" name="view_scientific_name" fq-name="basedata.view_scientific_name" order="13" color-bg="254,146,197" x="50" y="0">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="15" name="view_scientific_name_extended" fq-name="basedata.view_scientific_name_extended" order="14" color-bg="254,146,197" x="260" y="0">
+				<path name="basedata"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="order_class_fkey" fq-name="basedata.scientific_name_order.order_class_fkey" type="fk" pk-ref="4" fk-ref="7"/>
+		<relation name="genus_family_fkey" fq-name="basedata.scientific_name_genus.genus_family_fkey" type="fk" pk-ref="5" fk-ref="6"/>
+		<relation name="species_genus_fkey" fq-name="basedata.scientific_name_species.species_genus_fkey" type="fk" pk-ref="6" fk-ref="8"/>
+		<relation name="family_order_fkey" fq-name="basedata.scientific_name_family.family_order_fkey" type="fk" pk-ref="7" fk-ref="5"/>
+		<relation name="subspecies_species_fkey" fq-name="basedata.scientific_name_subspecies.subspecies_species_fkey" type="fk" pk-ref="8" fk-ref="11"/>
+		<relation name="genus_subfamily_fkey" fq-name="basedata.scientific_name_genus.genus_subfamily_fkey" type="fk" pk-ref="9" fk-ref="6"/>
+		<relation name="family_suborder_fkey" fq-name="basedata.scientific_name_family.family_suborder_fkey" type="fk" pk-ref="10" fk-ref="5"/>
+		<relation name="family_superfamily_fkey" fq-name="basedata.scientific_name_family.family_superfamily_fkey" type="fk" pk-ref="12" fk-ref="5"/>
+		<relation name="genus_tribe_fkey" fq-name="basedata.scientific_name_genus.genus_tribe_fkey" type="fk" pk-ref="13" fk-ref="6"/>
+	</relations>
+</diagram>

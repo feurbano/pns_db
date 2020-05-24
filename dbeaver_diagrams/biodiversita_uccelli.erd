@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="uccelli.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="lu_cielo_copertura" fq-name="biodiversita.lu_cielo_copertura" order="0" color-bg="255,255,208" x="510" y="280">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="lu_dati_qualita" fq-name="biodiversita.lu_dati_qualita" order="1" color-bg="255,255,208" x="510" y="490">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="lu_uccelli_comportamento" fq-name="biodiversita.lu_uccelli_comportamento" order="2" color-bg="255,255,208" x="510" y="600">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="lu_uccelli_distanza" fq-name="biodiversita.lu_uccelli_distanza" order="3" color-bg="255,255,208" x="510" y="700">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="lu_uccelli_osservazione_tipo" fq-name="biodiversita.lu_uccelli_osservazione_tipo" order="4" color-bg="255,255,208" x="510" y="820">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="lu_vento_quantita" fq-name="biodiversita.lu_vento_quantita" order="5" color-bg="255,255,208" x="510" y="360">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="operatori" fq-name="biodiversita.operatori" order="6" color-bg="255,255,128" border-width="3" x="510" y="20">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="plot" fq-name="biodiversita.plot" order="7" color-bg="255,128,0" x="-10" y="0">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="uccelli_controllo" fq-name="biodiversita.uccelli_controllo" order="8" color-bg="128,255,128" x="280" y="130">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="uccelli_monitoraggio" fq-name="biodiversita.uccelli_monitoraggio" order="9" color-bg="64,128,128" x="260" y="540">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="10" color-bg="210,0,0" x="30" y="560">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="12" name="lu_controllo_esito" fq-name="biodiversita.lu_controllo_esito" order="11" x="510" y="190">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="uccelli_controllo_cielo_copertura_fkey" fq-name="biodiversita.uccelli_controllo.uccelli_controllo_cielo_copertura_fkey" type="fk" pk-ref="1" fk-ref="9"/>
+		<relation name="uccelli_controllo_dati_qualita_fkey" fq-name="biodiversita.uccelli_controllo.uccelli_controllo_dati_qualita_fkey" type="fk" pk-ref="2" fk-ref="9"/>
+		<relation name="uccelli_monitoraggio_dati_qualita_fkey" fq-name="biodiversita.uccelli_monitoraggio.uccelli_monitoraggio_dati_qualita_fkey" type="fk" pk-ref="2" fk-ref="10"/>
+		<relation name="uccelli_monitoraggio_uccelli_comportamento_fkey" fq-name="biodiversita.uccelli_monitoraggio.uccelli_monitoraggio_uccelli_comportamento_fkey" type="fk" pk-ref="3" fk-ref="10"/>
+		<relation name="uccelli_monitoraggio_uccelli_distanza_fkey" fq-name="biodiversita.uccelli_monitoraggio.uccelli_monitoraggio_uccelli_distanza_fkey" type="fk" pk-ref="4" fk-ref="10"/>
+		<relation name="uccelli_monitoraggio_osservazione_tipo_fkey" fq-name="biodiversita.uccelli_monitoraggio.uccelli_monitoraggio_osservazione_tipo_fkey" type="fk" pk-ref="5" fk-ref="10"/>
+		<relation name="uccelli_controllo_vento_quantita_fkey" fq-name="biodiversita.uccelli_controllo.uccelli_controllo_vento_quantita_fkey" type="fk" pk-ref="6" fk-ref="9"/>
+		<relation name="uccelli_controllo_operatori1_fkey" fq-name="biodiversita.uccelli_controllo.uccelli_controllo_operatori1_fkey" type="fk" pk-ref="7" fk-ref="9"/>
+		<relation name="uccelli_controllo_operatori2_fkey" fq-name="biodiversita.uccelli_controllo.uccelli_controllo_operatori2_fkey" type="fk" pk-ref="7" fk-ref="9"/>
+		<relation name="uccelli_controllo_plot_fkey" fq-name="biodiversita.uccelli_controllo.uccelli_controllo_plot_fkey" type="fk" pk-ref="8" fk-ref="9"/>
+		<relation name="uccelli_monitoraggio_controllo_fkey" fq-name="biodiversita.uccelli_monitoraggio.uccelli_monitoraggio_controllo_fkey" type="fk" pk-ref="9" fk-ref="10"/>
+		<relation name="uccelli_monitoraggio_animali_fkey" fq-name="biodiversita.uccelli_monitoraggio.uccelli_monitoraggio_animali_fkey" type="fk" pk-ref="11" fk-ref="10"/>
+		<relation name="uccelli_controllo_esito_fkey" fq-name="biodiversita.uccelli_controllo.uccelli_controllo_esito_fkey" type="fk" pk-ref="12" fk-ref="9"/>
+	</relations>
+</diagram>

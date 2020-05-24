@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="censimenti_camoscio_lom.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="censimenti_lom_1999" fq-name="censimenti_camoscio.censimenti_lom_1999" order="0" color-bg="255,128,0" x="10" y="10">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="censimenti_lom_2001" fq-name="censimenti_camoscio.censimenti_lom_2001" order="1" color-bg="255,128,0" x="10" y="310">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="censimenti_lom_2013" fq-name="censimenti_camoscio.censimenti_lom_2013" order="2" color-bg="255,128,0" x="10" y="630">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="particelle_lom_1999" fq-name="censimenti_camoscio.particelle_lom_1999" order="3" color-bg="64,128,128" x="360" y="10">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="particelle_lom_2001" fq-name="censimenti_camoscio.particelle_lom_2001" order="4" color-bg="64,128,128" x="360" y="320">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="particelle_lom_2013" fq-name="censimenti_camoscio.particelle_lom_2013" order="5" color-bg="64,128,128" x="360" y="630">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="settori_lom_1999" fq-name="censimenti_camoscio.settori_lom_1999" order="6" color-bg="179,217,217" x="550" y="50">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="settori_lom_2001" fq-name="censimenti_camoscio.settori_lom_2001" order="7" color-bg="179,217,217" x="550" y="360">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="settori_lom_2013" fq-name="censimenti_camoscio.settori_lom_2013" order="8" color-bg="179,217,217" x="550" y="670">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="stazioni_lom_1999" fq-name="censimenti_camoscio.stazioni_lom_1999" order="9" color-bg="179,217,217" x="730" y="70">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="stazioni_lom_2001" fq-name="censimenti_camoscio.stazioni_lom_2001" order="10" color-bg="179,217,217" x="732" y="379">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="12" name="stazioni_lom_2013" fq-name="censimenti_camoscio.stazioni_lom_2013" order="11" color-bg="179,217,217" x="732" y="689">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="13" name="percorsi_lom_2013" fq-name="censimenti_camoscio.percorsi_lom_2013" order="12" color-bg="255,206,231" x="190" y="820">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="fki_censimenti_lom_2001_particelle" fq-name="censimenti_camoscio.censimenti_lom_2001.fki_censimenti_lom_2001_particelle" type="fk" pk-ref="5" fk-ref="2"/>
+		<relation name="fki_censimenti_lom_2013_particelle" fq-name="censimenti_camoscio.censimenti_lom_2013.fki_censimenti_lom_2013_particelle" type="fk" pk-ref="6" fk-ref="3"/>
+		<relation name="fki_particelle_lom_1999_settori" fq-name="censimenti_camoscio.particelle_lom_1999.fki_particelle_lom_1999_settori" type="fk" pk-ref="7" fk-ref="4"/>
+		<relation name="fki_particelle_lom_2001_settori" fq-name="censimenti_camoscio.particelle_lom_2001.fki_particelle_lom_2001_settori" type="fk" pk-ref="8" fk-ref="5"/>
+		<relation name="fki_particelle_lom_2013_settori" fq-name="censimenti_camoscio.particelle_lom_2013.fki_particelle_lom_2013_settori" type="fk" pk-ref="9" fk-ref="6"/>
+		<relation name="fki_settori_lom_1999_stazioni" fq-name="censimenti_camoscio.settori_lom_1999.fki_settori_lom_1999_stazioni" type="fk" pk-ref="10" fk-ref="7"/>
+		<relation name="fki_settori_lom_2001_stazioni" fq-name="censimenti_camoscio.settori_lom_2001.fki_settori_lom_2001_stazioni" type="fk" pk-ref="11" fk-ref="8"/>
+		<relation name="fki_settori_lom_2013_stazioni" fq-name="censimenti_camoscio.settori_lom_2013.fki_settori_lom_2013_stazioni" type="fk" pk-ref="12" fk-ref="9"/>
+	</relations>
+</diagram>

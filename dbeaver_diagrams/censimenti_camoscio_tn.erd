@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="censimenti_camoscio_tn.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="censimenti_tn_1996" fq-name="censimenti_camoscio.censimenti_tn_1996" order="0" color-bg="255,128,0" x="210" y="0">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="censimenti_tn_1999" fq-name="censimenti_camoscio.censimenti_tn_1999" order="1" color-bg="255,128,0" x="210" y="650">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="localizzazioni_tn_1999" fq-name="censimenti_camoscio.localizzazioni_tn_1999" order="2" color-bg="0,128,0" x="460" y="620">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="particelle_tn_1996" fq-name="censimenti_camoscio.particelle_tn_1996" order="3" color-bg="0,128,128" x="210" y="300">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="particelle_tn_1999" fq-name="censimenti_camoscio.particelle_tn_1999" order="4" color-bg="0,128,128" x="210" y="950">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="settori_tn_1996" fq-name="censimenti_camoscio.settori_tn_1996" order="5" color-bg="169,211,211" x="403" y="347">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="settori_tn_1999" fq-name="censimenti_camoscio.settori_tn_1999" order="6" color-bg="169,211,211" x="403" y="1002">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="stazioni_tn_1996" fq-name="censimenti_camoscio.stazioni_tn_1996" order="7" color-bg="169,211,211" x="556" y="366">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="stazioni_tn_1999" fq-name="censimenti_camoscio.stazioni_tn_1999" order="8" color-bg="169,211,211" x="556" y="1021">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="subparticelle_tn_1996" fq-name="censimenti_camoscio.subparticelle_tn_1996" order="9" color-bg="158,255,125" x="10" y="310">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="subparticelle_tn_1999" fq-name="censimenti_camoscio.subparticelle_tn_1999" order="10" color-bg="158,255,125" x="10" y="960">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="fki_censimenti_tn_1996_particelle" fq-name="censimenti_camoscio.censimenti_tn_1996.fki_censimenti_tn_1996_particelle" type="fk" pk-ref="4" fk-ref="1"/>
+		<relation name="fki_subparticelle_tn_1996_particelle" fq-name="censimenti_camoscio.subparticelle_tn_1996.fki_subparticelle_tn_1996_particelle" type="fk" pk-ref="4" fk-ref="10"/>
+		<relation name="fki_censimenti_tn_1999_particelle" fq-name="censimenti_camoscio.censimenti_tn_1999.fki_censimenti_tn_1999_particelle" type="fk" pk-ref="5" fk-ref="2"/>
+		<relation name="fki_localizzazioni_tn_1999_particelle" fq-name="censimenti_camoscio.localizzazioni_tn_1999.fki_localizzazioni_tn_1999_particelle" type="fk" pk-ref="5" fk-ref="3"/>
+		<relation name="fki_subparticelle_tn_1999_particelle" fq-name="censimenti_camoscio.subparticelle_tn_1999.fki_subparticelle_tn_1999_particelle" type="fk" pk-ref="5" fk-ref="11"/>
+		<relation name="fki_particelle_tn_1996_settori" fq-name="censimenti_camoscio.particelle_tn_1996.fki_particelle_tn_1996_settori" type="fk" pk-ref="6" fk-ref="4"/>
+		<relation name="fki_particelle_tn_1999_settori" fq-name="censimenti_camoscio.particelle_tn_1999.fki_particelle_tn_1999_settori" type="fk" pk-ref="7" fk-ref="5"/>
+		<relation name="fki_settori_tn_1996_stazioni" fq-name="censimenti_camoscio.settori_tn_1996.fki_settori_tn_1996_stazioni" type="fk" pk-ref="8" fk-ref="6"/>
+		<relation name="fki_settori_tn_1999_stazioni" fq-name="censimenti_camoscio.settori_tn_1999.fki_settori_tn_1999_stazioni" type="fk" pk-ref="9" fk-ref="7"/>
+	</relations>
+</diagram>

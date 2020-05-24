@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="ortotteri.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="lu_dati_qualita" fq-name="biodiversita.lu_dati_qualita" order="0" color-bg="255,255,208" x="390" y="483">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="ortotteri_controllo" fq-name="biodiversita.ortotteri_controllo" order="1" color-bg="0,255,64" x="310" y="80">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="ortotteri_monitoraggio" fq-name="biodiversita.ortotteri_monitoraggio" order="2" color-bg="64,128,128" x="160" y="470">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="ortotteri_osservazioni" fq-name="biodiversita.ortotteri_osservazioni" order="3" color-bg="0,168,0" x="600" y="513">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="plot" fq-name="biodiversita.plot" order="4" color-bg="255,128,64" x="10" y="10">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="operatori" fq-name="biodiversita.operatori" order="5" color-bg="255,255,0" x="510" y="10">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="lu_cielo_copertura" fq-name="biodiversita.lu_cielo_copertura" order="6" color-bg="255,255,208" x="540" y="180">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="lu_vento_quantita" fq-name="biodiversita.lu_vento_quantita" order="7" color-bg="255,255,208" x="540" y="280">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="8" color-bg="255,117,117" x="400" y="610">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="lu_tratto" fq-name="biodiversita.lu_tratto" order="9" x="0" y="510">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="lu_controllo_esito" fq-name="biodiversita.lu_controllo_esito" order="10" x="540" y="380">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="ortotteri_controllo_dati_qualita_fkey" fq-name="biodiversita.ortotteri_controllo.ortotteri_controllo_dati_qualita_fkey" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="ortotteri_monitoraggio_dati_qualita_fkey" fq-name="biodiversita.ortotteri_monitoraggio.ortotteri_monitoraggio_dati_qualita_fkey" type="fk" pk-ref="1" fk-ref="3"/>
+		<relation name="ortotteri_osservazioni_dati_qualita_fkey" fq-name="biodiversita.ortotteri_osservazioni.ortotteri_osservazioni_dati_qualita_fkey" type="fk" pk-ref="1" fk-ref="4"/>
+		<relation name="ortotteri_monitoraggio_controllo" fq-name="biodiversita.ortotteri_monitoraggio.ortotteri_monitoraggio_controllo" type="fk" pk-ref="2" fk-ref="3"/>
+		<relation name="ortotteri_controllo_plot_fkey" fq-name="biodiversita.ortotteri_controllo.ortotteri_controllo_plot_fkey" type="fk" pk-ref="5" fk-ref="2"/>
+		<relation name="ortotteri_controllo_operatori1_fkey" fq-name="biodiversita.ortotteri_controllo.ortotteri_controllo_operatori1_fkey" type="fk" pk-ref="6" fk-ref="2"/>
+		<relation name="ortotteri_controllo_operatori2_fkey" fq-name="biodiversita.ortotteri_controllo.ortotteri_controllo_operatori2_fkey" type="fk" pk-ref="6" fk-ref="2"/>
+		<relation name="ortotteri_controllo_cielo_copertura_fkey" fq-name="biodiversita.ortotteri_controllo.ortotteri_controllo_cielo_copertura_fkey" type="fk" pk-ref="7" fk-ref="2"/>
+		<relation name="ortotteri_controllo_vento_quantita_fkey" fq-name="biodiversita.ortotteri_controllo.ortotteri_controllo_vento_quantita_fkey" type="fk" pk-ref="8" fk-ref="2"/>
+		<relation name="ortotteri_monitoraggio_animali_fkey" fq-name="biodiversita.ortotteri_monitoraggio.ortotteri_monitoraggio_animali_fkey" type="fk" pk-ref="9" fk-ref="3"/>
+		<relation name="ortotteri_osservazioni_animali_fkey" fq-name="biodiversita.ortotteri_osservazioni.ortotteri_osservazioni_animali_fkey" type="fk" pk-ref="9" fk-ref="4"/>
+		<relation name="ortotteri_monitoraggio_tratto_fkey" fq-name="biodiversita.ortotteri_monitoraggio.ortotteri_monitoraggio_tratto_fkey" type="fk" pk-ref="10" fk-ref="3"/>
+		<relation name="ortotteri_controllo_esito_fkey" fq-name="biodiversita.ortotteri_controllo.ortotteri_controllo_esito_fkey" type="fk" pk-ref="11" fk-ref="2"/>
+	</relations>
+</diagram>

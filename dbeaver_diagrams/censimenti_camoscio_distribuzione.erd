@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="censimenti_camoscio_distribuzione.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="distribuzione_2010" fq-name="censimenti_camoscio.distribuzione_2010" order="0" color-bg="255,128,255" x="10" y="10">
+				<path name="censimenti_camoscio"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations/>
+</diagram>

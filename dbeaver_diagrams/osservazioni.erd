@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="osservazioni.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="observations" fq-name="observations.observations" order="0" color-bg="64,128,128" x="20" y="21">
+				<path name="observations"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="observations_asfd" fq-name="observations.observations_asfd" order="1" color-bg="64,128,128" x="20" y="657">
+				<path name="observations"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="specie" fq-name="observations.specie" order="2" color-bg="193,0,0" x="270" y="20">
+				<path name="observations"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="view_observations_stats" fq-name="observations.view_observations_stats" order="3" color-bg="255,204,255" x="490" y="290">
+				<path name="observations"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="view_presence_observations_stats" fq-name="observations.view_presence_observations_stats" order="4" color-bg="255,204,255" x="490" y="20">
+				<path name="observations"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="observations_specie" fq-name="observations.observations.observations_specie" type="fk" pk-ref="3" fk-ref="1"/>
+		<relation name="observations_asfd_specie" fq-name="observations.observations_asfd.observations_asfd_specie" type="fk" pk-ref="3" fk-ref="2"/>
+	</relations>
+</diagram>

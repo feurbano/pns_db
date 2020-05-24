@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="odonati.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="lu_odonati_stima" fq-name="biodiversita.lu_odonati_stima" order="0" color-bg="255,255,204" border-width="3" x="400" y="220">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="odonati_osservazioni" fq-name="biodiversita.odonati_osservazioni" order="1" color-bg="106,255,181" border-width="3" x="160" y="0">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="operatori" fq-name="biodiversita.operatori" order="2" color-bg="255,255,128" border-width="3" x="400" y="0">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="3" color-bg="255,138,138" border-width="3" x="-30" y="50">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="odonati_osservazioni_stima_fkey" fq-name="biodiversita.odonati_osservazioni.odonati_osservazioni_stima_fkey" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="odonati_osservazioni_operatori_operatori_fkey" fq-name="biodiversita.odonati_osservazioni.odonati_osservazioni_operatori_operatori_fkey" type="fk" pk-ref="3" fk-ref="2"/>
+		<relation name="odonati_osservazioni_animali_fkey" fq-name="biodiversita.odonati_osservazioni.odonati_osservazioni_animali_fkey" type="fk" pk-ref="4" fk-ref="2"/>
+	</relations>
+</diagram>

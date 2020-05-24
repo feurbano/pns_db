@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="biodiversita_ambiente.erd">
+	<entities>
+		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
+			<entity id="1" name="plot" fq-name="biodiversita.plot" order="1" color-bg="255,128,0" x="400" y="350">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="2" name="plot_caratteristiche_ambientali" fq-name="biodiversita.plot_caratteristiche_ambientali" order="2" color-bg="0,183,91" x="20" y="210">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="3" name="plot_fitosociologia" fq-name="biodiversita.plot_fitosociologia" order="3" color-bg="0,183,91" x="370" y="860">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="4" name="plot_fitosociologia_specie" fq-name="biodiversita.plot_fitosociologia_specie" order="4" color-bg="213,255,213" x="150" y="990">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="5" name="plot_tipologie_vegetazione" fq-name="biodiversita.plot_tipologie_vegetazione" order="5" color-bg="0,183,91" x="580" y="880">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="6" name="vegetazione_griglia" fq-name="biodiversita.vegetazione_griglia" order="6" color-bg="255,255,128" x="370" y="0">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="7" name="vegetazione_microhabitat" fq-name="biodiversita.vegetazione_microhabitat" order="7" color-bg="0,183,91" x="630" y="-60">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="8" name="vegetazione_morfospecie_fiorite" fq-name="biodiversita.vegetazione_morfospecie_fiorite" order="8" color-bg="0,183,91" x="300" y="126">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="9" name="vegetazione_morfospecie_tutte" fq-name="biodiversita.vegetazione_morfospecie_tutte" order="9" color-bg="0,183,91" x="30" y="-20">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="10" name="plot_temperatura" fq-name="biodiversita.plot_temperatura" order="10" color-bg="0,183,91" x="630" y="680">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="11" name="parchi" fq-name="biodiversita.parchi" order="11" color-bg="255,198,170" x="260" y="590">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+			<entity id="12" name="settori" fq-name="biodiversita.settori" order="12" color-bg="255,198,170" x="260" y="730">
+				<path name="biodiversita"/>
+				<path name="pstelvio_db"/>
+			</entity>
+		</data-source>
+	</entities>
+	<notes>
+		<note id="13" order="0" color-bg="192,192,192" x="380" y="330" w="191" h="451"></note>
+	</notes>
+	<relations>
+		<relation name="plot_caratteristiche_ambientali_fkey" fq-name="biodiversita.plot_caratteristiche_ambientali.plot_caratteristiche_ambientali_fkey" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="plot_fitosociologia_plot_fkey" fq-name="biodiversita.plot_fitosociologia.plot_fitosociologia_plot_fkey" type="fk" pk-ref="1" fk-ref="3"/>
+		<relation name="plot_tipologie_vegetazione_fkey" fq-name="biodiversita.plot_tipologie_vegetazione.plot_tipologie_vegetazione_fkey" type="fk" pk-ref="1" fk-ref="5"/>
+		<relation name="vegetazione_microhabitat_plot_fkey" fq-name="biodiversita.vegetazione_microhabitat.vegetazione_microhabitat_plot_fkey" type="fk" pk-ref="1" fk-ref="7"/>
+		<relation name="vegetazione_morfospecie_fiorite_plot_fkey" fq-name="biodiversita.vegetazione_morfospecie_fiorite.vegetazione_morfospecie_fiorite_plot_fkey" type="fk" pk-ref="1" fk-ref="8"/>
+		<relation name="vegetazione_morfospecie_tutte_plot_fkey" fq-name="biodiversita.vegetazione_morfospecie_tutte.vegetazione_morfospecie_tutte_plot_fkey" type="fk" pk-ref="1" fk-ref="9"/>
+		<relation name="plot_temperatura_plot_fkey" fq-name="biodiversita.plot_temperatura.plot_temperatura_plot_fkey" type="fk" pk-ref="1" fk-ref="10"/>
+		<relation name="plot_fitosociologia_specie_plot_fkey" fq-name="biodiversita.plot_fitosociologia_specie.plot_fitosociologia_specie_plot_fkey" type="fk" pk-ref="3" fk-ref="4"/>
+		<relation name="vegetazione_microhabitat_griglia_fkey" fq-name="biodiversita.vegetazione_microhabitat.vegetazione_microhabitat_griglia_fkey" type="fk" pk-ref="6" fk-ref="7"/>
+		<relation name="vegetazione_morfospecie_fiorite_griglia_fkey" fq-name="biodiversita.vegetazione_morfospecie_fiorite.vegetazione_morfospecie_fiorite_griglia_fkey" type="fk" pk-ref="6" fk-ref="8"/>
+		<relation name="vegetazione_morfospecie_tutte_griglia_fkey" fq-name="biodiversita.vegetazione_morfospecie_tutte.vegetazione_morfospecie_tutte_griglia_fkey" type="fk" pk-ref="6" fk-ref="9"/>
+		<relation name="sezioni_parchi_fkey" fq-name="biodiversita.settori.sezioni_parchi_fkey" type="fk" pk-ref="11" fk-ref="12"/>
+		<relation name="plot_sezioni_fkey" fq-name="biodiversita.plot.plot_sezioni_fkey" type="fk" pk-ref="12" fk-ref="1"/>
+	</relations>
+</diagram>
