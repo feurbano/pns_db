@@ -2,75 +2,75 @@
 <diagram version="1" name="biodiversita_animali.erd">
 	<entities>
 		<data-source id="postgres-jdbc-16681bc2f34-18197a6019aa0b68">
-			<entity id="1" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="4" color-bg="255,128,64" border-width="3" x="420" y="1100">
+			<entity id="1" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="4" color-bg="128,64,64" border-width="3" x="420" y="1100">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="2" name="scientific_name_class" fq-name="basedata.scientific_name_class" order="5" border-width="3" x="643" y="1580">
+			<entity id="2" name="scientific_name_class" fq-name="basedata.scientific_name_class" order="5" x="643" y="1580">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="3" name="scientific_name_family" fq-name="basedata.scientific_name_family" order="6" border-width="3" x="643" y="1340">
+			<entity id="3" name="scientific_name_family" fq-name="basedata.scientific_name_family" order="6" x="643" y="1340">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="4" name="scientific_name_genus" fq-name="basedata.scientific_name_genus" order="7" border-width="3" x="643" y="1160">
+			<entity id="4" name="scientific_name_genus" fq-name="basedata.scientific_name_genus" order="7" x="643" y="1160">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="5" name="scientific_name_order" fq-name="basedata.scientific_name_order" order="8" border-width="3" x="643" y="1520">
+			<entity id="5" name="scientific_name_order" fq-name="basedata.scientific_name_order" order="8" x="643" y="1520">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="6" name="scientific_name_species" fq-name="basedata.scientific_name_species" order="9" border-width="3" x="643" y="1100">
+			<entity id="6" name="scientific_name_species" fq-name="basedata.scientific_name_species" order="9" x="643" y="1100">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="7" name="scientific_name_subfamily" fq-name="basedata.scientific_name_subfamily" order="10" border-width="3" x="643" y="1280">
+			<entity id="7" name="scientific_name_subfamily" fq-name="basedata.scientific_name_subfamily" order="10" x="643" y="1280">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="8" name="scientific_name_suborder" fq-name="basedata.scientific_name_suborder" order="11" border-width="3" x="643" y="1460">
+			<entity id="8" name="scientific_name_suborder" fq-name="basedata.scientific_name_suborder" order="11" x="643" y="1460">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="9" name="scientific_name_subspecies" fq-name="basedata.scientific_name_subspecies" order="12" border-width="3" x="643" y="1040">
+			<entity id="9" name="scientific_name_subspecies" fq-name="basedata.scientific_name_subspecies" order="12" x="643" y="1040">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="10" name="scientific_name_superfamily" fq-name="basedata.scientific_name_superfamily" order="13" border-width="3" x="643" y="1400">
+			<entity id="10" name="scientific_name_superfamily" fq-name="basedata.scientific_name_superfamily" order="13" x="643" y="1400">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="11" name="scientific_name_tribe" fq-name="basedata.scientific_name_tribe" order="14" border-width="3" x="643" y="1220">
+			<entity id="11" name="scientific_name_tribe" fq-name="basedata.scientific_name_tribe" order="14" x="643" y="1220">
 				<path name="basedata"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="12" name="lepidotteri_monitoraggio" fq-name="biodiversita.lepidotteri_monitoraggio" order="15" color-bg="64,128,128" border-width="3" x="170" y="1060">
+			<entity id="12" name="lepidotteri_monitoraggio" fq-name="biodiversita.lepidotteri_monitoraggio" order="15" color-bg="64,128,128" x="170" y="1060">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="13" name="ortotteri_monitoraggio" fq-name="biodiversita.ortotteri_monitoraggio" order="16" color-bg="64,128,128" border-width="3" x="-30" y="1120">
+			<entity id="13" name="ortotteri_monitoraggio" fq-name="biodiversita.ortotteri_monitoraggio" order="16" color-bg="64,128,128" x="-30" y="1120">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="14" name="lepidotteri_osservazioni" fq-name="biodiversita.lepidotteri_osservazioni" order="17" color-bg="176,255,197" border-width="3" x="600" y="600">
+			<entity id="14" name="lepidotteri_osservazioni" fq-name="biodiversita.lepidotteri_osservazioni" order="17" color-bg="176,255,197" x="600" y="600">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="15" name="odonati_osservazioni" fq-name="biodiversita.odonati_osservazioni" order="18" color-bg="176,255,197" border-width="3" x="390" y="600">
+			<entity id="15" name="odonati_osservazioni" fq-name="biodiversita.odonati_osservazioni" order="18" color-bg="176,255,197" x="390" y="600">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="16" name="ortotteri_osservazioni" fq-name="biodiversita.ortotteri_osservazioni" order="19" color-bg="176,255,197" border-width="3" x="200" y="600">
+			<entity id="16" name="ortotteri_osservazioni" fq-name="biodiversita.ortotteri_osservazioni" order="19" color-bg="176,255,197" x="200" y="600">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="17" name="uccelli_monitoraggio" fq-name="biodiversita.uccelli_monitoraggio" order="20" color-bg="64,128,128" border-width="3" x="-30" y="1520">
+			<entity id="17" name="uccelli_monitoraggio" fq-name="biodiversita.uccelli_monitoraggio" order="20" color-bg="64,128,128" x="-30" y="1520">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="18" name="epigei_monitoraggio" fq-name="biodiversita.epigei_monitoraggio" order="21" color-bg="64,128,128" border-width="3" x="200" y="1440">
+			<entity id="18" name="epigei_monitoraggio" fq-name="biodiversita.epigei_monitoraggio" order="21" color-bg="64,128,128" x="200" y="1440">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>

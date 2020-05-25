@@ -26,7 +26,7 @@
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="7" name="operatori" fq-name="biodiversita.operatori" order="6" color-bg="255,255,128" border-width="3" x="510" y="20">
+			<entity id="7" name="operatori" fq-name="biodiversita.operatori" order="6" color-bg="255,255,128" x="510" y="20">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
@@ -42,7 +42,7 @@
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
-			<entity id="11" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="10" color-bg="210,0,0" x="30" y="560">
+			<entity id="11" name="biodiversita_animali" fq-name="biodiversita.biodiversita_animali" order="10" color-bg="210,0,0" border-width="3" x="40" y="540">
 				<path name="biodiversita"/>
 				<path name="pstelvio_db"/>
 			</entity>
