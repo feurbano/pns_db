@@ -447,7 +447,7 @@ Qui di seguito è riportata la lista completa di tabelle e viste contenute in qu
 
 [...]  
 
-## <a name="Osservazioni"></a> Osservazioni ##
+## <a name="Osservazioni"></a> Osservazioni  
 
 
 #### Descrizione generale  
